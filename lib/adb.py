@@ -8,6 +8,8 @@
 # @file: adb.py
 # @time: 2021/7/26 下午2:35
 # @desc: Arknights Auto Helper based on ADB and Python
+import os
+import re
 import subprocess
 
 import cv2
@@ -16,13 +18,25 @@ import numpy as np
 
 class AndroidDebugBridge:
 
+    def __init__(self, device_id):
+        self.device_id = device_id
+
     @staticmethod
     def adb_shell(command):
         # return [i.decode() for i in
         #         subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
         #                          stderr=subprocess.PIPE, ).stdout.readlines()]
-        return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.PIPE, ).stdout.read()
+        adb_process = subprocess.Popen(command, stdout=subprocess.PIPE,
+                                       stderr=subprocess.PIPE)
+        # exec_result, exec_err = adb_process.communicate()
+        # if adb_process.returncode != 0:
+        #     if exec_err:
+        #         feedback = exec_err.decode()
+        #     else:
+        #         feedback = 'unknown error happened when execute {}, view terminal for detail'.format(
+        #             command)
+        #     raise RuntimeError(feedback)
+        return adb_process.stdout.read()
 
     # 二次初始化ADB桥
     def wifi_init(self):
@@ -56,24 +70,24 @@ class AndroidDebugBridge:
             return False
 
     def get_devices_model(self):
-        return self.adb_shell('adb shell getprop ro.product.model')[0].split()[
-            0]
+        return self.adb_shell(f'adb shell getprop ro.product.model')
 
     def get_size(self):
-        body = self.adb_shell('adb -s %s shell wm size' % self.dev)
+        body = self.adb_shell('adb -s %s shell wm size' % self.device_id)
         body_1 = body[0].split()[2]
         body_2 = re.search('(\d+)x(\d+)', body_1)
         return int(body_2.group(1)), int(body_2.group(2))
 
     def get_android_version(self):
         body = self.adb_shell(
-            f'adb -s {self.dev} shell getprop ro.build.version.release')
+            f'adb -s {self.device_id} shell getprop ro.build.version.release')
         return body[0].split()[0]
 
     def get_ram_Info(self):
         total = None
         memFree = None
-        body = self.adb_shell('adb -s %s shell cat /proc/meminfo' % self.dev)
+        body = self.adb_shell(
+            'adb -s %s shell cat /proc/meminfo' % self.device_id)
         if len(body) >= 1:
             for item in body:
                 if 'MemTotal:' in item.split():
@@ -83,7 +97,8 @@ class AndroidDebugBridge:
             return str(total) + ' M', str(memFree) + ' M'
 
     def get_cpu_info(self):
-        body = self.adb_shell('adb -s %s shell cat /proc/cpuinfo' % self.dev)
+        body = self.adb_shell(
+            'adb -s %s shell cat /proc/cpuinfo' % self.device_id)
         cpuPro = 0
         cpuInfo = ''
         if len(body) >= 1:
@@ -128,21 +143,24 @@ class AndroidDebugBridge:
         Take a screenshot of the current device
         :return: image in cv2 format
         """
-        screenshot = self.adb_shell('adb shell screencap -p')
+        # 趟坑，Windows传输编码导致png数据损坏：.replace(b'\r\n', b'\n')
+        screenshot = self.adb_shell('adb shell screencap -p').replace(
+            b'\r\n', b'\n')
+        # print(screenshot)
         screenshot = cv2.imdecode(
             np.frombuffer(screenshot, np.uint8),
             cv2.IMREAD_COLOR)
-        # 调试 开发
         # cv2.namedWindow("Image")
         # cv2.imshow("Image", screenshot)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
-        cv2.imwrite('start10.jpeg', screenshot)
+        cv2.imwrite('temp3.jpeg', screenshot)
         return screenshot
 
     def tap(self, x, y, duration=0):
         if duration:
-            return self.adb_shell(f'adb shell input swipe {x} {y} {x} {y} {duration}')
+            return self.adb_shell(
+                f'adb shell input swipe {x} {y} {x} {y} {duration}')
         else:
             return self.adb_shell(f'adb shell input tap {x} {y}')
 
@@ -157,14 +175,11 @@ class AndroidDebugBridge:
 
     def wake(self):
         return self.keyevent(26)
+
+
 # 依赖调试
 if __name__ == '__main__':
-    devices = AndroidDebugBridge()
-    # print(devices.get_allpacks())
-    # print(devices.get_activity())
-    # a = devices.start_app('com.hypergryph.arknights/com.u8.sdk.U8UnityContext')
-    # print(a)
-    # import time
-    # time.sleep(5)
-    # devices.get_screenshot()
-    print(devices.wake())
+    devices = AndroidDebugBridge('9887bc394436343530')
+    devices.get_screenshot()
+    # # devices.tap(504, 364)
+    # print(devices.get_devices_model().decode())
