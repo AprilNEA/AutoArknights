@@ -1,0 +1,6 @@
+ocr:
+  tencent:
+    SecretId:
+    SecretKey:
+    LanguageType:
+  other:
