@@ -11,20 +11,29 @@
 # @lastupdate: 2021/7/30 11:37 Green Sulley
 # @desc: Arknights Auto Helper based on ADB and Python
 import json
+import pkgutil
+
 from itertools import combinations
 from typing import List, Tuple, Dict
 
-with open('../data/character.json') as f:
-    data_character = json.load(f)
+import ocr
 
-with open('../data/character_cn.json') as f:
-    data_character_cn = json.load(f)
+data_character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
 
-with open('../data/tag.json') as f:
-    data_tags = json.load(f)
+data_character_cn = json.loads(
+    pkgutil.get_data('lib', '../data/character_cn.json'))
 
-with open('../data/tagwithch.json') as f:
-    data_tag_with_ch = json.load(f)
+data_tags = json.loads(pkgutil.get_data('lib', '../data/tag.json'))
+
+data_tag_with_ch = json.loads(pkgutil.get_data('lib', '../data/tagwithch.json'))
+
+# 在出现错误之后再进行错误赐予更换
+ERROR_MAP = {
+    '千员': '干员',
+    '滅速': '減速',
+    '枳械': '机械',
+    '冫口了': '治疗',
+}
 
 
 def recuitment(tags: List[str]) -> List[int]:
@@ -112,6 +121,27 @@ def get_score(characters: List[Dict[str, int]]) -> int:
         # if character["s"] == 1:
         #     score +=
     return score
+
+
+def ocr_tags(img_base64):
+    texts = json.loads(ocr.tencent_ocr(img_base64))
+    tags = []
+    for text in texts["TextDetections"]:
+        if text["Confidence"] >= 85:
+            tags.append({
+                "text": text["DetectedText"],
+                "loc": {
+                    "x": text["ItemPolygon"]["X"],
+                    "y": text["ItemPolygon"]["Y"]
+                }
+            })
+
+    # fixme 优化算法，！稳定性
+    # 排序 标签 位置
+    sorted(tags, key=lambda tag: tag['loc']['x'], reverse=True)
+    sorted(tags, key=lambda tag: tag['loc']['y'], reverse=True)
+    # print(tags)
+    return tags
 
 
 def recruitment(tags: List) -> Tuple[str]:
