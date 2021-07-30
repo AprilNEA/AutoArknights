@@ -1,3 +1,12 @@
+account: # 可添加多个账户
+  - 1:
+      username:
+      password:
+      istimelimit: # 0表示无限制，1表示90min限制
+  - 2:
+      username:
+      password:
+      istimelimit:
 ocr:
   tencent:
     SecretId:
