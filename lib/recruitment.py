@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @author: SkuMoe
+# @author: Green Sullkey
 # @license: MIT License
 # @contact: sukeycz0@gmail.com
 # @software: PyCharm
 # @project : ArknightsAutoHelper
+# @github: GreenSulley/ArknightsAutoHelper
 # @file: recruitment.py
-# @time: 2021/7/29 21:55
+# @createtime: 2021/7/29 21:55 Green Sulley
+# @lastupdate: 2021/7/30 11:37 Green Sulley
 # @desc: Arknights Auto Helper based on ADB and Python
 import json
 from itertools import combinations

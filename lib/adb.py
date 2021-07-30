@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @author: SkuMoe
+# @author: Green Sulley
 # @license: MIT License
 # @contact: sukeycz0@gmail.com
 # @software: PyCharm
 # @project : ArknightsAutoHelper
+# @github: GreenSulley/ArknightsAutoHelper
 # @file: adb.py
-# @time: 2021/7/26 下午2:35
+# @createtime: 2021/7/26 下午2:35 Green Sulley
+# @lastupdate: 2021/7/26 下午2:35 Green Sulley
 # @desc: Arknights Auto Helper based on ADB and Python
 import os
 import re
@@ -26,7 +28,7 @@ class AndroidDebugBridge:
         # return [i.decode() for i in
         #         subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
         #                          stderr=subprocess.PIPE, ).stdout.readlines()]
-        adb_process = subprocess.Popen(command, stdout=subprocess.PIPE,
+        adb_process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
                                        stderr=subprocess.PIPE)
         # exec_result, exec_err = adb_process.communicate()
         # if adb_process.returncode != 0:
@@ -144,8 +146,8 @@ class AndroidDebugBridge:
         :return: image in cv2 format
         """
         # 趟坑，Windows传输编码导致png数据损坏：.replace(b'\r\n', b'\n')
-        screenshot = self.adb_shell('adb shell screencap -p').replace(
-            b'\r\n', b'\n')
+        screenshot = self.adb_shell('adb shell screencap -p')#.replace(
+            #b'\r\n', b'\n')
         # print(screenshot)
         screenshot = cv2.imdecode(
             np.frombuffer(screenshot, np.uint8),
@@ -154,7 +156,7 @@ class AndroidDebugBridge:
         # cv2.imshow("Image", screenshot)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
-        cv2.imwrite('temp3.jpeg', screenshot)
+        cv2.imwrite('temp5.jpeg', screenshot)
         return screenshot
 
     def tap(self, x, y, duration=0):
@@ -181,5 +183,5 @@ class AndroidDebugBridge:
 if __name__ == '__main__':
     devices = AndroidDebugBridge('9887bc394436343530')
     devices.get_screenshot()
-    # # devices.tap(504, 364)
+    # devices.tap(504, 364)
     # print(devices.get_devices_model().decode())

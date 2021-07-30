@@ -1,15 +1,18 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-# @author: SkuMoe
+# @author: Green Sulley
 # @license: MIT License
 # @contact: sukeycz0@gmail.com
 # @software: PyCharm
 # @project : ArknightsAutoHelper
+# @github: GreenSulley/ArknightsAutoHelper
 # @file: ocr.py
-# @time: 2021/7/29 19:47
+# @time: 2021/7/29 19:47 Green Sulley
+# @lastupdate: 2021/7/30 11:37 Green Sulley
 # @desc: Arknights Auto Helper based on ADB and Python
 import json
 import base64
+from typing import List
 
 import yaml
 
@@ -26,8 +29,11 @@ import utils
 with open('../config.yaml') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
+with open('../data/character.json') as f:
+    character = json.load(f)
 
-def tencent_ocr(img_base64):
+
+def tencent_ocr(img_base64: bytes) -> List:
     try:
         # 实例化认证对象
         cred = credential.Credential(config["ocr"]["tencent"]["SecretId"],
@@ -61,6 +67,7 @@ def tencent_ocr(img_base64):
                     }
                 })
         # fixme 优化算法，！稳定性
+        # 排序 标签 位置
         sorted(tags, key=lambda tag: tag['loc']['x'], reverse=True)
         sorted(tags, key=lambda tag: tag['loc']['y'], reverse=True)
         # print(tags)
@@ -70,7 +77,10 @@ def tencent_ocr(img_base64):
         return err
 
 
+def recuitment(tags: List[str]) -> List[int]:
+    result = [0]
+    return result
+
+
 if __name__ == '__main__':
-    img = utils.img_cv2(r'D:\Github\MyArknightsAutoHelper\lib\temp3.jpeg')
-    img = img[550:725, 530:1290]  # 裁剪坐标为[y0:y1, x0:x1]
-    tencent_ocr(utils.cv2_to_base64(img))
+    recuitment()
