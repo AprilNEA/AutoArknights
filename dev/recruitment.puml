@@ -1,6 +1,7 @@
 @startuml
 start
-  :获取公招标签;
+  :ocr_tags()
+  获取公招标签;
 if (存在"高资")
   :单选"高资";
 elseif (存在"资深")
