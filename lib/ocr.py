@@ -15,6 +15,7 @@ import base64
 from typing import List
 
 import yaml
+import pkgutil
 
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
@@ -24,16 +25,15 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import \
 # 导入对应产品模块的client models。
 from tencentcloud.ocr.v20181119 import ocr_client, models
 
-import utils
+from lib import utils
 
-with open('../config.yaml') as f:
-    config = yaml.load(f, Loader=yaml.FullLoader)
+config = yaml.load(pkgutil.get_data('lib', '../config.yaml'), Loader=yaml.FullLoader)
 
-with open('../data/character.json') as f:
-    character = json.load(f)
+character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
 
-
-def tencent_ocr(img_base64: bytes) -> List:
+def tencent_ocr(img_base64: bytes):
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
     try:
         # 实例化认证对象
         cred = credential.Credential(config["ocr"]["tencent"]["SecretId"],
@@ -55,32 +55,15 @@ def tencent_ocr(img_base64: bytes) -> List:
         }
         req.from_json_string(json.dumps(params))
         resp = client.GeneralBasicOCR(req)
-        texts = json.loads(resp.to_json_string())
-        tags = []
-        for text in texts["TextDetections"]:
-            if text["Confidence"] >= 85:
-                tags.append({
-                    "name": text["DetectedText"],
-                    "loc": {
-                        "x": text["ItemPolygon"]["X"],
-                        "y": text["ItemPolygon"]["Y"]
-                    }
-                })
-        # fixme 优化算法，！稳定性
-        # 排序 标签 位置
-        sorted(tags, key=lambda tag: tag['loc']['x'], reverse=True)
-        sorted(tags, key=lambda tag: tag['loc']['y'], reverse=True)
-        # print(tags)
-        return tags
+        resp_text = resp.to_json_string()
+        return resp_text
+
     except TencentCloudSDKException as err:
         # print(err)
         return err
 
-
-def recuitment(tags: List[str]) -> List[int]:
-    result = [0]
-    return result
-
-
 if __name__ == '__main__':
-    recuitment()
+    import adb
+    devices = adb.AndroidDebugBridge('9887bc394436343530')
+    a = devices.get_screenshot()
+    print(tencent_ocr(utils.cv2_to_base64(a)))
