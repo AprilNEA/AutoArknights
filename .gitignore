@@ -2,3 +2,4 @@
 .idea
 .idea/*
 config.yaml
+__pycache__/
