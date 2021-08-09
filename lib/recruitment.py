@@ -16,7 +16,7 @@ import pkgutil
 from itertools import combinations
 from typing import List, Tuple, Dict
 
-import ocr
+from lib import ocr
 
 data_character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
 
@@ -34,6 +34,34 @@ ERROR_MAP = {
     '枳械': '机械',
     '冫口了': '治疗',
 }
+
+Guaranteed_FIVE = [
+    ['控场'], ['爆发'], ['召唤'],
+    ['近卫干员', '防护'],
+    ['重装干员', '输出'], ['重装干员', '生存'], ['重装干员', '位移'],
+    ['辅助干员', '输出'], ['辅助干员', '削弱'],
+    ['术师干员', '治疗'],
+    ['特种干员', '输出'], ['特种干员', '生存'], ['特种干员', '减速'], ['特种干员', '削弱'],
+    ['先锋干员', '支援'],
+    ['治疗', '输出'], ['治疗', '减速'],
+    ['支援', '费用回复'],
+    ['输出', '防护'], ['输出', '位移'],
+    ['生存', '防护'],
+    ['群攻', '削弱'],
+    ['防护', '位移'],
+    ['减速', '位移'],
+    ['削弱', '快速复活'], ['削弱', '近战位'],
+    ['术师干员', '输出', '减速']
+]
+Guaranteed_FOUR = [
+    ['特种干员'], ['支援'], ['削弱'], ['快速复活'], ['位移'],
+    ['近卫干员', '减速'],
+    ['狙击干员', '生存'], ['狙击干员', '减速'],
+    ['术师干员', '减速'], ['先锋干员', '治疗'],
+    ['治疗', '费用回复'], ['输出', '减速'],
+    ['生存', '远程位'], ['群攻', '减速'],
+    ['减速', '近战位'],
+]
 
 
 def recuitment(tags: List[str]) -> List[int]:
@@ -97,33 +125,12 @@ def get_character(combination: Tuple[str]) -> List[Dict[str, int]]:
     if num == 1:
         return data_tag_with_ch[combination[0]]
 
-
-def get_score(characters: List[Dict[str, int]]) -> int:
+def ocr_tags(img_base64: bytes) -> List:
     """
-    计算Tag组合的分数
-    :param characters:
-    :return: 分数
+    公招OCR
+    :param img_base64: 公招截图,最好是1920x1080中的[550:725, 530:1290]
+    :return:
     """
-    score = 0
-    # todo 优化算法
-    for character in characters:
-        if character["s"] == 6:
-            score += 10000
-        if character["s"] == 5:
-            score += 1000
-        if character["s"] == 4:
-            score += 100
-        if character["s"] == 3:
-            score += 10
-        # 忽略 1/2星 支援小车特殊处理
-        # if character["s"] == 2:
-        #     score +=
-        # if character["s"] == 1:
-        #     score +=
-    return score
-
-
-def ocr_tags(img_base64):
     texts = json.loads(ocr.tencent_ocr(img_base64))
     tags = []
     for text in texts["TextDetections"]:
@@ -135,34 +142,69 @@ def ocr_tags(img_base64):
                     "y": text["ItemPolygon"]["Y"]
                 }
             })
-
     # fixme 优化算法，！稳定性
     # 排序 标签 位置
     sorted(tags, key=lambda tag: tag['loc']['x'], reverse=True)
     sorted(tags, key=lambda tag: tag['loc']['y'], reverse=True)
-    # print(tags)
-    return tags
+    res = []
+    for tag in tags:
+        # todo 优化纠正方式
+        for word_wrong, word_right in ERROR_MAP.items():
+            fix_tag = tag["text"].replace(word_wrong, word_right)
+        if fix_tag in data_tags.values():
+            res.append(fix_tag)
+        else:
+            # print(tag["text"],fix_tag)
+            pass
+            # todo 异常处理logger
+    print(f"检测到Tag{res}")
+    return res
 
 
-def recruitment(tags: List) -> Tuple[str]:
+def recruitment(tags: List) -> Tuple:
     """
     根据获得的公招Tags计算出最优组合
     :param tags: 5个公招Tag
     :return: 最优组合
     """
-    all_combinations = get_combinations(tags)
-    # print(all_combinations)
-    best_comb = None
-    for comb in all_combinations:
-        char = get_character(comb)
-        score = get_score(char)
-        if best_comb is None:
-            best_comb = [comb, score]
-        if score > best_comb[1]:
-            best_comb = [comb, score]
-    return best_comb[0]
+    if '高级资深干员' in tags:
+        return (tags.index('高级资深干员'),)  # 元组中只包含一个元素时，需要在元素后面添加逗号
+    elif '资深干员' in tags:
+        return (tags.index('资深干员'),)
+    for tag in Guaranteed_FIVE:
+        if set(tag).issubset(set(tags)):
+            a = len(tag)
+            if a == 1:
+                return (tags.index(tag[0]),)
+            if a == 2:
+                return tags.index(tag[0]), tags.index(tag[1])
+            if a == 3:
+                return tags.index(tag[0]), tags.index(tag[1]), tags.index(
+                    tag[2])
+    # todo 四星标签
+    if '支援机械' in tags:
+        return (tags.index('支援机械'),)
+    for tag in Guaranteed_FOUR:
+        if set(tag).issubset(set(tags)):
+            a = len(tag)
+            if a == 1:
+                return (tags.index(tag[0]),)
+            if a == 2:
+                return tags.index(tag[0]), tags.index(tag[1])
+            if a == 3:
+                return tags.index(tag[0]), tags.index(tag[1]), tags.index(
+                    tag[2])
+    return False
 
 
 if __name__ == '__main__':
-    a = recruitment(['治疗', '狙击干员', '高级资深干员'])
-    print(a)
+    # a = recruitment(['治疗', '狙击干员', '高级资深干员'])
+    # print(a)
+    from lib import adb
+    from lib import utils
+
+    # devices = adb.AndroidDebugBridge('9887bc394436343530')
+    # a = devices.get_screenshot()
+    # b = ocr_tags(utils.cv2_to_base64(a))
+    c = recruitment(['输出', '位移', '减速'])
+    print(c)
