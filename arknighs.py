@@ -12,9 +12,9 @@
 # @desc: Arknights Auto Helper based on ADB and Python
 import yaml
 import time
-from typing import List
-
+from typing import List, Tuple
 from random import randint, uniform
+
 from loguru import logger
 
 from lib import adb
@@ -60,6 +60,44 @@ class Player:
             logger.info(f"点按{value[0]}{value[1]}")
             return True
 
+    def tap_screenshot(self, *args: str) -> bool:
+        """
+        根据给定的图片模板匹配在屏幕上的位置,点击中心
+        :param args: 数据逐层解包成图片路径
+        :return: 是否成功
+        """
+        n = len(args)
+        path = 'image'
+        for arg in args:
+            path += str("/" + arg)
+        locat = utils.match_image(utils.img_np_cv2(path),
+                                  self.devices.get_screenshot())
+        if locat:
+            logger.debug(f"屏幕点击({locat[0]},{locat[1]})")
+            self.devices.tap(locat[0], locat[1])
+            return True
+        else:
+            # logger.info()
+            return False
+
+    def exist_screenshot(self, *args: str) -> bool:
+        """
+        判断给定的图片是否存在于当前屏幕
+        :param args: 数据逐层解包成图片路径
+        :return: 是否成功
+        """
+        n = len(args)
+        path = 'image'
+        for arg in args:
+            path += str("/" + arg)
+        locat = utils.match_image(utils.img_np_cv2(path),
+                                  self.devices.get_screenshot())
+        if locat:
+            return True
+        else:
+            # logger.info()
+            return False
+
     def signin(self):
         """
         登录并完成签到,关闭公共及活动
@@ -84,8 +122,7 @@ class Player:
                 time.sleep(30)  # 30秒检查一次
         inindex = False  # 是否处于主页
         while inindex is False:
-            ter = utils.exist_match_image(utils.img_np_cv2('image/终端.jpeg'),
-                                          self.devices.get_screenshot())
+            ter = self.exist_screenshot('终端.jpeg')
             if ter:
                 inindex = True
             else:
@@ -107,8 +144,7 @@ class Player:
                 self.devices.tap(b[0], b[1])
         inindex = False  # 是否处于主页
         while inindex is False:
-            ter = utils.exist_match_image(utils.img_np_cv2('image/终端.jpeg'),
-                                          self.devices.get_screenshot())
+            ter = self.exist_screenshot('终端.jpeg')
             if ter:
                 inindex = True
             else:
@@ -130,36 +166,49 @@ class Player:
         在卡关界面,进入卡关
         :return: 是否成功
         """
-        screenshot = self.devices.get_screenshot()
-        proxy = utils.exist_match_image(utils.img_np_cv2('image/代理指挥开启.jpeg'),
-                                        screenshot)  # 在卡关界面判断是否可代理
-        if proxy:
-            location = utils.match_image(utils.img_np_cv2(
-                'image/开始行动.jpeg'), screenshot)  # 点击开始行动
-            del screenshot
-            if location:
-                self.devices.tap(location[0], location[1])
-                time.sleep(0.5)  # 等待进入
-                location2 = utils.match_image(
-                    utils.img_np_cv2('image/开始行动干员.jpeg'),
-                    self.devices.get_screenshot())
-                if location2:
-                    self.devices.tap(location2[0], location2[1])
+        if self.exist_screenshot(u'代理指挥开启.jpeg'): # 在卡关界面判断是否可代理
+            logger.info("本卡关可使用代理指挥")
+            for j in range(5):  # 5次循环尝试
+                location = self.tap_screenshot('开始行动.jpeg')  # 点击开始行动
+                if location:
+                    logger.info(f"开始行动 成功进入编队")
+                    time.sleep(1)  # 等待进入
+                    for i in range(3):  # 3次循环尝试
+                        location2 = self.tap_screenshot('开始行动干员.jpeg')
+                        if location2:
+                            logger.info(f"干员开始行动 成功进入卡关 第{i + 1}次尝试 ")
+                            break
+                        else:
+                            logger.info(f"无法找到干员开始行动 第{i + 1}次尝试 ")
+                            time.sleep(1)
+                            if i == 2:
+                                return False
+                    break
+                else:
+                    logger.info(f"无法找到开始行动 第{j + 1}次尝试")
+                    if j == 4:
+                        logger.info(f"无法找到开始行动 第{j + 1}次尝试 已退出")
+                        return False
         else:
+            logger.info("不可使用代理指挥")
             return False
+        # 判读是否出卡关
         over = False
+        i = 0
+        time.sleep(45)
         while over is False:  # while not over
+            i += 1
             screenshot = self.devices.get_screenshot()
-            if utils.exist_match_image(utils.img_np_cv2('image/行动结束.jpeg'),
-                                       screenshot):
+            if self.exist_screenshot('行动结束.jpeg'):
+                logger.info(f"卡关已结束 退回界面")
                 self.devices.tap(randint(100, 1800),
                                  randint(100, 1080))  # 随机点出结算屏幕
                 time.sleep(2)  # 结算点出后,加载的时间
                 # todo 如果还未加载出卡关
-                print("已回到主卡关")
                 over = True
             else:
-                time.sleep(10)  # 等待下一次屏幕检查
+                logger.info(f"卡关还未结束 第{i}次尝试")
+                time.sleep(15)  # 等待下一次屏幕检查
         return True
 
     def receive_task(self):
@@ -168,17 +217,17 @@ class Player:
         :return:
         """
         self.tap_loaction('index', 'task')
-        target = self.devices.get_screenshot()
-        temp = utils.img_np_cv2('image/日常任务.jpeg')
-        a = utils.match_image(temp, target)
+        sh_now = self.devices.get_screenshot()
+        a = utils.match_image(utils.img_np_cv2('image/日常任务.jpeg'),
+                              sh_now)
         if a:
             self.devices.tap(a[0], a[1])
         temp = utils.img_np_cv2('image/周常任务.jpeg')
-        a = utils.match_image(temp, target)
+        a = utils.match_image(temp, sh_now)
         if a:
             self.devices.tap(a[0], a[1])
         temp = utils.img_np_cv2('image/主线任务.jpeg')
-        a = utils.match_image(temp, target)
+        a = utils.match_image(temp, sh_now)
         if a:
             self.devices.tap(a[0], a[1])
 
@@ -191,7 +240,6 @@ class Player:
                 return True
             else:
                 self.back_to_index()
-
 
     def riic(self):
         """

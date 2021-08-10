@@ -44,17 +44,9 @@ def base64_to_cv2(base64_str: str):
                         cv2.IMREAD_COLOR)
 
 
-def exist_match_image(temp, target):
+def match_image(temp, target):
     # False: 0.13017292320728302
     # True: 9.214816964231431e-05
-    result = cv2.matchTemplate(target, temp, cv2.TM_SQDIFF_NORMED)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
-    if min_val > 0.1:
-        return False
-    return True
-
-
-def match_image(temp, target):
     h, w, s = temp.shape
     result = cv2.matchTemplate(target, temp, cv2.TM_SQDIFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
