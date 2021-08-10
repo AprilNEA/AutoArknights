@@ -51,13 +51,14 @@ class Player:
                 c = uniform(value[0][0], value[1][0])
                 d = uniform(value[0][1], value[1][1])
                 self.devices.tap(c, d)
+                logger.debug(f"屏幕点击 ({c}, {d})")
             else:
                 self.devices.tap(value[0], value[1])
+                logger.debug(f"屏幕点击 {value[0]}, {value[1]}")
         except:
-            logger.debug(f"点按{value[0]}{value[1]}失败")
+            logger.debug(f"屏幕点击 {value[0]}{value[1]} 失败")
             return False
         else:
-            logger.info(f"点按{value[0]}{value[1]}")
             return True
 
     def tap_screenshot(self, *args: str) -> bool:
@@ -134,47 +135,87 @@ class Player:
         在任意位置退回主页
         :return:
         """
-        a = utils.match_image(utils.img_np_cv2('image/主页标签.jpeg'),
-                              self.devices.get_screenshot())
-        if a:
-            self.devices.tap(a[0], a[1])
-            b = utils.match_image(utils.img_np_cv2('image/主页标签2.jpeg'),
-                                  self.devices.get_screenshot())
-            if b:
-                self.devices.tap(b[0], b[1])
-        inindex = False  # 是否处于主页
-        while inindex is False:
-            ter = self.exist_screenshot('终端.jpeg')
-            if ter:
-                inindex = True
+        if self.exist_screenshot('终端.jpeg'):
+            logger.info("已经位于主页")
+            return True
+        if self.tap_screenshot('主页标签.jpeg'):
+            logger.info("点击顶部主页按钮")
+            time.sleep(1)
+            if self.tap_screenshot('主页标签2.jpeg'):
+                logger.info("点击返回主页按钮")
             else:
-                pass  # todo
-        return True
+                logger.info("找不到返回主页按钮")
+        else:
+            logger.info("找不到顶部主页按钮")
+        if self.exist_screenshot('终端.jpeg'):
+            return True
+        else:
+            logger.info("返回主页失败")
+            return False
 
     def public_recruitment(self):
         """
         公共招募,对接OCR
         :return:
         """
-        screenshot = self.devices.get_screenshot()[550:725, 530:1290]
-        tags = recruitment.ocr_tags(utils.cv2_to_base64(screenshot))
-        selected_tags = recruitment.recruitment(tags)
-        print(selected_tags)
+        # 收菜
+        for i in range(3):
+            logger.info(f'招募干员(收菜) 共3次 第{i + 1}次')
+            if self.exist_screenshot('公招', f'完成{i + 1}.jpeg'):
+                self.tap_screenshot('公招', '完成.jpeg')
+                time.sleep(1)
+                self.devices.tap(1842, 73)
+                time.sleep(1.5)
+                self.devices.tap(randint(100, 1800), randint(100, 1080))
+                time.sleep(1)
+        # 种菜
+        for i in range(3):
+            logger.info(f'启动新的公招(种菜) 共3次 第{i + 1}次')
+            self.tap_screenshot('公招', '启动公招.jpeg')
+            time.sleep(0.5)
+            while True:
+                screenshot = self.devices.get_screenshot()[550:725, 530:1290]
+                tags = recruitment.ocr_tags(utils.cv2_to_base64(screenshot))
+                selected_tags = recruitment.recruitment(tags)
+                if selected_tags:
+                    for s_id in selected_tags:
+                        self.tap_loaction('recruitment', 'tags', s_id)
+                    if '支援机械' in tags:
+                        for j in range(3):
+                            self.tap_loaction('recruitment', 'hour', 'add')
+                        for k in range(10):
+                            self.tap_loaction('recruitment', 'minute', 'reduce')
+                    else:
+                        self.tap_loaction('recruitment', 'hour', 'reduce')
+                    self.tap_screenshot('公招', '开始.jpeg')
+                    break
+                else:
+                    # if self.tap_screenshot('公招', '刷新.jpeg'):
+                    #     logger.info(f'刷新标签')
+                    #     continue
+                    # else:
+                    #     self.tap_loaction('recruitment', 'hour', 'reduce')
+                    #     self.tap_screenshot('公招', '开始.jpeg')
+                    #     break
+                    self.tap_loaction('recruitment', 'hour', 'reduce')
+                    self.tap_screenshot('公招', '开始.jpeg')
+                    break
+            time.sleep(1.5)
 
     def fixed_start(self):
         """
         在卡关界面,进入卡关
         :return: 是否成功
         """
-        if self.exist_screenshot(u'代理指挥开启.jpeg'): # 在卡关界面判断是否可代理
+        if self.exist_screenshot('卡关','代理指挥开启.jpeg'):  # 在卡关界面判断是否可代理
             logger.info("本卡关可使用代理指挥")
             for j in range(5):  # 5次循环尝试
-                location = self.tap_screenshot('开始行动.jpeg')  # 点击开始行动
+                location = self.tap_screenshot('卡关','开始行动.jpeg')  # 点击开始行动
                 if location:
                     logger.info(f"开始行动 成功进入编队")
                     time.sleep(1)  # 等待进入
                     for i in range(3):  # 3次循环尝试
-                        location2 = self.tap_screenshot('开始行动干员.jpeg')
+                        location2 = self.tap_screenshot('卡关','开始行动干员.jpeg')
                         if location2:
                             logger.info(f"干员开始行动 成功进入卡关 第{i + 1}次尝试 ")
                             break
@@ -199,7 +240,7 @@ class Player:
         while over is False:  # while not over
             i += 1
             screenshot = self.devices.get_screenshot()
-            if self.exist_screenshot('行动结束.jpeg'):
+            if self.exist_screenshot('卡关','行动结束.jpeg'):
                 logger.info(f"卡关已结束 退回界面")
                 self.devices.tap(randint(100, 1800),
                                  randint(100, 1080))  # 随机点出结算屏幕
@@ -216,30 +257,25 @@ class Player:
         自动领取任务
         :return:
         """
-        self.tap_loaction('index', 'task')
-        sh_now = self.devices.get_screenshot()
-        a = utils.match_image(utils.img_np_cv2('image/日常任务.jpeg'),
-                              sh_now)
-        if a:
-            self.devices.tap(a[0], a[1])
-        temp = utils.img_np_cv2('image/周常任务.jpeg')
-        a = utils.match_image(temp, sh_now)
-        if a:
-            self.devices.tap(a[0], a[1])
-        temp = utils.img_np_cv2('image/主线任务.jpeg')
-        a = utils.match_image(temp, sh_now)
-        if a:
-            self.devices.tap(a[0], a[1])
+        self.back_to_index()
+        if self.tap_loaction('index', 'task'):
+            time.sleep(2)
+            if self.tap_screenshot('任务', '收集全部.jpeg'):
+                while not self.exist_screenshot('任务','主线任务.jpeg'):
+                    time.sleep(3)
+                    self.devices.tap(randint(300, 1600), randint(500, 1080))
+                time.sleep(1)
+            if self.tap_screenshot('任务', '周常任务.jpeg'):
+                time.sleep(1)
+                if self.tap_screenshot('任务', '收集全部.jpeg'):
+                    while not self.exist_screenshot('任务', '主线任务.jpeg'):
+                        time.sleep(3)
+                        self.devices.tap(randint(300, 1600), randint(500, 1080))
+                    time.sleep(1)
+        else:
+            logger.info("未找到任务")
+        self.back_to_index()
 
-    def recruitment(self):
-        while False:
-            location = utils.match_image(utils.img_np_cv2(
-                'image/公开招募.jpeg'), self.devices.get_screenshot())  # 点击开始行动
-            if location:
-                self.devices.tap(location[0], location[1])
-                return True
-            else:
-                self.back_to_index()
 
     def riic(self):
         """
@@ -257,6 +293,7 @@ class Player:
             self.tap_loaction('riic', 'matter')
             time.sleep(1)
         return True
+
 
     def anni(self, rtype="a"):
         """
@@ -286,6 +323,7 @@ class Player:
                     self.devices.tap(qenbg[0], qenbg[1])
         time.sleep(3)
         return True
+
 
     def resource(self, rtype: int):
         """
