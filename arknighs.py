@@ -243,7 +243,7 @@ class Player:
             if self.exist_screenshot('卡关','行动结束.jpeg'):
                 logger.info(f"卡关已结束 退回界面")
                 self.devices.tap(randint(100, 1800),
-                                 randint(100, 1080))  # 随机点出结算屏幕
+                                 randint(100, 900))  # 随机点出结算屏幕
                 time.sleep(2)  # 结算点出后,加载的时间
                 # todo 如果还未加载出卡关
                 over = True
