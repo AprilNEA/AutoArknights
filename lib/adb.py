@@ -28,7 +28,8 @@ class AndroidDebugBridge:
         # return [i.decode() for i in
         #         subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
         #                          stderr=subprocess.PIPE, ).stdout.readlines()]
-        adb_process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
+        adb_process = subprocess.Popen(command, shell=True,
+                                       stdout=subprocess.PIPE,
                                        stderr=subprocess.PIPE)
         # exec_result, exec_err = adb_process.communicate()
         # if adb_process.returncode != 0:
@@ -146,17 +147,9 @@ class AndroidDebugBridge:
         :return: image in cv2 format
         """
         # 趟坑，Windows传输编码导致png数据损坏：.replace(b'\r\n', b'\n')
-        screenshot = self.adb_shell('adb shell screencap -p')#.replace(
-            #b'\r\n', b'\n')
-        # print(screenshot)
-        screenshot = cv2.imdecode(
-            np.frombuffer(screenshot, np.uint8),
-            cv2.IMREAD_COLOR)
-        # cv2.namedWindow("Image")
-        # cv2.imshow("Image", screenshot)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
-        cv2.imwrite('temp5.jpeg', screenshot)
+        screenshot = self.adb_shell('adb shell screencap -p')
+        screenshot = cv2.imdecode(np.frombuffer(screenshot, np.uint8),
+                                  cv2.IMREAD_COLOR)
         return screenshot
 
     def tap(self, x, y, duration=0):
@@ -177,11 +170,3 @@ class AndroidDebugBridge:
 
     def wake(self):
         return self.keyevent(26)
-
-
-# 依赖调试
-if __name__ == '__main__':
-    devices = AndroidDebugBridge('9887bc394436343530')
-    devices.get_screenshot()
-    # devices.tap(504, 364)
-    # print(devices.get_devices_model().decode())
