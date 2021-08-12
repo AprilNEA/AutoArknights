@@ -3,7 +3,7 @@
 # @author: Green Sulley
 # @license: MIT License
 # @project : GreenSulley/ArknightsAutoHelper
-# @file: mitm.py
+# @file: mitmproxy.py
 # @desc: Arknights Auto Helper based on ADB and Python
 
 
