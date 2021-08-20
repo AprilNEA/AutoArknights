@@ -50,24 +50,6 @@ def match_image(temp, target):
     h, w, s = temp.shape
     result = cv2.matchTemplate(target, temp, cv2.TM_SQDIFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
-    # print(min_val, min_loc)
     if min_val > 0.1:
         return False
     return min_loc[0] + (w / 2), min_loc[1] + (h / 2)
-
-
-# 调试测试
-if __name__ == '__main__':
-    from adb import AndroidDebugBridge
-
-    devices = AndroidDebugBridge('9887bc394436343530')
-    # temp = cv2.imread(r'D:\Github\MyArknightsAutoHelper\image\开始唤醒.jpeg')
-    # CV2无法识别中文路径
-    temp = cv2.imdecode(
-        np.fromfile('../image/开始唤醒.jpeg',
-                    dtype=np.uint8), cv2.IMREAD_COLOR)
-    target = cv2.imread(r'temp3.jpeg')
-    # target = devices.get_screenshot()
-    print(exist_match_image(temp, target))
-    # print(a)
-    # devices.tap(a[0], a[1])

@@ -1,0 +1,3603 @@
+// POST https://ak-gs-gf.hypergryph.com/building/sync HTTP/1.1
+// 基建数据 载入基建时请求
+[
+  //Request
+  {},
+  //Request
+  {
+    // Response
+    "ts": 1628672224,
+    "playerDataDelta": {
+      "modified": {
+        "building": {
+          "chars": {
+            "1": {
+              "charId": "char_002_amiya",
+              "lastApAddTime": 1628672224,
+              "ap": 35,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 56065
+            },
+            "2": {
+              "charId": "char_502_nblade",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_9",
+              "index": 0,
+              "changeScale": 250,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "3": {
+              "charId": "char_500_noirc",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "slot_14",
+              "index": 2,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107290
+            },
+            "4": {
+              "charId": "char_503_rang",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "5": {
+              "charId": "char_185_frncat",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_20",
+              "index": 2,
+              "changeScale": 300,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "6": {
+              "charId": "char_120_hibisc",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "7": {
+              "charId": "char_192_falco",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "8": {
+              "charId": "char_117_myrrh",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "9": {
+              "charId": "char_126_shotst",
+              "lastApAddTime": 1628672224,
+              "ap": 10,
+              "roomSlotId": "slot_25",
+              "index": 1,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107293
+            },
+            "10": {
+              "charId": "char_278_orchid",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "11": {
+              "charId": "char_118_yuki",
+              "lastApAddTime": 1628672224,
+              "ap": 2376800,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 78290
+            },
+            "12": {
+              "charId": "char_237_gravel",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "13": {
+              "charId": "char_124_kroos",
+              "lastApAddTime": 1628672224,
+              "ap": 10,
+              "roomSlotId": "slot_25",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107293
+            },
+            "14": {
+              "charId": "char_291_aglina",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_36",
+              "index": 0,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": 111,
+                  "ts": 1628668800
+                }
+              },
+              "workTime": 0
+            },
+            "15": {
+              "charId": "char_109_fmout",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_20",
+              "index": 0,
+              "changeScale": 300,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "16": {
+              "charId": "char_211_adnach",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "slot_24",
+              "index": 1,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 101778
+            },
+            "17": {
+              "charId": "char_235_jesica",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_20",
+              "index": 3,
+              "changeScale": 300,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "18": {
+              "charId": "char_123_fang",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_9",
+              "index": 1,
+              "changeScale": 250,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "19": {
+              "charId": "char_501_durin",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "20": {
+              "charId": "char_009_12fce",
+              "lastApAddTime": 1628672224,
+              "ap": 2376800,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 78290
+            },
+            "21": {
+              "charId": "char_121_lava",
+              "lastApAddTime": 1628672224,
+              "ap": 0,
+              "roomSlotId": "slot_26",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 96000
+            },
+            "22": {
+              "charId": "char_290_vigna",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 103233
+            },
+            "23": {
+              "charId": "char_150_snakek",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "slot_14",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107290
+            },
+            "24": {
+              "charId": "char_183_skgoat",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "25": {
+              "charId": "char_129_bluep",
+              "lastApAddTime": 1628672224,
+              "ap": 2160000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": 93,
+                  "ts": 1628668800
+                }
+              },
+              "workTime": 0
+            },
+            "26": {
+              "charId": "char_149_scave",
+              "lastApAddTime": 1628672224,
+              "ap": 85,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 106744
+            },
+            "27": {
+              "charId": "char_122_beagle",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 103105
+            },
+            "28": {
+              "charId": "char_212_ansel",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "29": {
+              "charId": "char_208_melan",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "slot_24",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 101778
+            },
+            "30": {
+              "charId": "char_282_catap",
+              "lastApAddTime": 1628672224,
+              "ap": 55,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 144324
+            },
+            "31": {
+              "charId": "char_198_blackd",
+              "lastApAddTime": 1628672224,
+              "ap": 15,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 115187
+            },
+            "32": {
+              "charId": "char_381_bubble",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 145136
+            },
+            "33": {
+              "charId": "char_196_sunbr",
+              "lastApAddTime": 1628672224,
+              "ap": 50,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 147734
+            },
+            "34": {
+              "charId": "char_258_podego",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "35": {
+              "charId": "char_346_aosta",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_28",
+              "index": 4,
+              "changeScale": 350,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "36": {
+              "charId": "char_209_ardign",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 108852
+            },
+            "37": {
+              "charId": "char_366_acdrop",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "slot_23",
+              "index": 0,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 87568
+            },
+            "38": {
+              "charId": "char_285_medic2",
+              "lastApAddTime": 1628672224,
+              "ap": 0,
+              "roomSlotId": "slot_16",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 96000
+            },
+            "39": {
+              "charId": "char_277_sqrrel",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_28",
+              "index": 2,
+              "changeScale": 350,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "40": {
+              "charId": "char_151_myrtle",
+              "lastApAddTime": 1628672224,
+              "ap": 10,
+              "roomSlotId": "slot_5",
+              "index": 1,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 137941
+            },
+            "41": {
+              "charId": "char_367_swllow",
+              "lastApAddTime": 1628672224,
+              "ap": 40,
+              "roomSlotId": "slot_34",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 101651
+            },
+            "42": {
+              "charId": "char_190_clour",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 147726
+            },
+            "43": {
+              "charId": "char_236_rope",
+              "lastApAddTime": 1628672224,
+              "ap": 55,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107114
+            },
+            "44": {
+              "charId": "char_166_skfire",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "45": {
+              "charId": "char_210_stward",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "46": {
+              "charId": "char_281_popka",
+              "lastApAddTime": 1628672224,
+              "ap": 35,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 90947
+            },
+            "47": {
+              "charId": "char_187_ccheal",
+              "lastApAddTime": 1628672224,
+              "ap": 0,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "48": {
+              "charId": "char_242_otter",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "49": {
+              "charId": "char_173_slchan",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "50": {
+              "charId": "char_284_spot",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "51": {
+              "charId": "char_141_nights",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 103233
+            },
+            "52": {
+              "charId": "char_181_flower",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "53": {
+              "charId": "char_193_frostl",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "54": {
+              "charId": "char_130_doberm",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 39273
+            },
+            "55": {
+              "charId": "char_283_midn",
+              "lastApAddTime": 1628672224,
+              "ap": 50,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 147734
+            },
+            "56": {
+              "charId": "char_271_spikes",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_32",
+              "index": 0,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "57": {
+              "charId": "char_326_glacus",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 99079
+            },
+            "58": {
+              "charId": "char_199_yak",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 110044
+            },
+            "59": {
+              "charId": "char_2013_cerber",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 147726
+            },
+            "60": {
+              "charId": "char_240_wyvern",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_20",
+              "index": 1,
+              "changeScale": 300,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "61": {
+              "charId": "char_301_cutter",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "62": {
+              "charId": "char_265_sophia",
+              "lastApAddTime": 1628672224,
+              "ap": 40,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 121590
+            },
+            "63": {
+              "charId": "char_226_hmau",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "slot_14",
+              "index": 1,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107290
+            },
+            "64": {
+              "charId": "char_272_strong",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_9",
+              "index": 4,
+              "changeScale": 250,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "65": {
+              "charId": "char_298_susuro",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "66": {
+              "charId": "char_436_whispr",
+              "lastApAddTime": 1628672224,
+              "ap": 40,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 121590
+            },
+            "67": {
+              "charId": "char_158_milu",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "68": {
+              "charId": "char_347_jaksel",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "69": {
+              "charId": "char_289_gyuki",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "70": {
+              "charId": "char_308_swire",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 39273
+            },
+            "71": {
+              "charId": "char_133_mm",
+              "lastApAddTime": 1628672224,
+              "ap": 55,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107114
+            },
+            "72": {
+              "charId": "char_391_rosmon",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 103233
+            },
+            "73": {
+              "charId": "char_127_estell",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "74": {
+              "charId": "char_311_mudrok",
+              "lastApAddTime": 1628672224,
+              "ap": 1058000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": 68,
+                  "ts": 1628668800
+                }
+              },
+              "workTime": 82285
+            },
+            "75": {
+              "charId": "char_355_ethan",
+              "lastApAddTime": 1628672224,
+              "ap": 20,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 100888
+            },
+            "76": {
+              "charId": "char_218_cuttle",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "77": {
+              "charId": "char_106_franka",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_9",
+              "index": 3,
+              "changeScale": 250,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "78": {
+              "charId": "char_102_texas",
+              "lastApAddTime": 1628672224,
+              "ap": 75,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 104680
+            },
+            "79": {
+              "charId": "char_337_utage",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "80": {
+              "charId": "char_302_glaze",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "81": {
+              "charId": "char_172_svrash",
+              "lastApAddTime": 1628672224,
+              "ap": 8439745,
+              "roomSlotId": "slot_13",
+              "index": 1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": 372,
+                  "ts": 1628668800
+                }
+              },
+              "workTime": 0
+            },
+            "82": {
+              "charId": "char_379_sesa",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "83": {
+              "charId": "char_137_brownb",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "84": {
+              "charId": "char_343_tknogi",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "85": {
+              "charId": "char_195_glassb",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "86": {
+              "charId": "char_378_asbest",
+              "lastApAddTime": 1628672224,
+              "ap": 55,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 85644
+            },
+            "87": {
+              "charId": "char_225_haak",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 39273
+            },
+            "88": {
+              "charId": "char_274_astesi",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_36",
+              "index": 1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "89": {
+              "charId": "char_328_cammou",
+              "lastApAddTime": 1628672224,
+              "ap": 35,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 108851
+            },
+            "90": {
+              "charId": "char_1011_lava2",
+              "lastApAddTime": 1628672224,
+              "ap": 8634275,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 25
+            },
+            "91": {
+              "charId": "char_279_excu",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "92": {
+              "charId": "char_260_durnar",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "93": {
+              "charId": "char_455_nothin",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "94": {
+              "charId": "char_110_deepcl",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 110044
+            },
+            "95": {
+              "charId": "char_2015_dusk",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_9",
+              "index": 2,
+              "changeScale": 250,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "96": {
+              "charId": "char_458_rfrost",
+              "lastApAddTime": 1628672224,
+              "ap": 60,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 39273
+            },
+            "97": {
+              "charId": "char_457_blitz",
+              "lastApAddTime": 1628672224,
+              "ap": 80,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 134647
+            },
+            "98": {
+              "charId": "char_452_bstalk",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 108561
+            },
+            "99": {
+              "charId": "char_250_phatom",
+              "lastApAddTime": 1628672224,
+              "ap": 40,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 121590
+            },
+            "100": {
+              "charId": "char_349_chiave",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "101": {
+              "charId": "char_333_sidero",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_13",
+              "index": 0,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "102": {
+              "charId": "char_171_bldsk",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_28",
+              "index": 3,
+              "changeScale": 350,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "103": {
+              "charId": "char_440_pinecn",
+              "lastApAddTime": 1628672224,
+              "ap": 1440000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "104": {
+              "charId": "char_475_akafyu",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "105": {
+              "charId": "char_230_savage",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "106": {
+              "charId": "char_143_ghost",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "107": {
+              "charId": "char_411_tomimi",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "108": {
+              "charId": "char_215_mantic",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "109": {
+              "charId": "char_219_meteo",
+              "lastApAddTime": 1628672224,
+              "ap": 1440000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "110": {
+              "charId": "char_108_silent",
+              "lastApAddTime": 1628672224,
+              "ap": 10,
+              "roomSlotId": "slot_25",
+              "index": 2,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 107293
+            },
+            "111": {
+              "charId": "char_1013_chen2",
+              "lastApAddTime": 1628672224,
+              "ap": 40,
+              "roomSlotId": "slot_34",
+              "index": 1,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 101651
+            },
+            "112": {
+              "charId": "char_421_crow",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "113": {
+              "charId": "char_254_vodfox",
+              "lastApAddTime": 1628672224,
+              "ap": 10,
+              "roomSlotId": "slot_5",
+              "index": 0,
+              "changeScale": -100,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 137941
+            },
+            "114": {
+              "charId": "char_204_platnm",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "115": {
+              "charId": "char_107_liskam",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_28",
+              "index": 1,
+              "changeScale": 350,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "116": {
+              "charId": "char_241_panda",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_20",
+              "index": 4,
+              "changeScale": 300,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "117": {
+              "charId": "char_437_mizuki",
+              "lastApAddTime": 1628672224,
+              "ap": 65,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 108852
+            },
+            "118": {
+              "charId": "char_253_greyy",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "slot_28",
+              "index": 0,
+              "changeScale": 350,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "119": {
+              "charId": "char_144_red",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            },
+            "120": {
+              "charId": "char_275_breeze",
+              "lastApAddTime": 1628672224,
+              "ap": 8640000,
+              "roomSlotId": "",
+              "index": -1,
+              "changeScale": 0,
+              "bubble": {
+                "normal": {
+                  "add": -1,
+                  "ts": 0
+                },
+                "assist": {
+                  "add": -1,
+                  "ts": 0
+                }
+              },
+              "workTime": 0
+            }
+          },
+          "roomSlots": {
+            "slot_34": {
+              "level": 4,
+              "state": 2,
+              "roomId": "CONTROL",
+              "charInstIds": [
+                41,
+                111,
+                -1,
+                -1
+              ],
+              "completeConstructTime": 1604587699
+            },
+            "slot_25": {
+              "level": 3,
+              "state": 2,
+              "roomId": "MANUFACTURE",
+              "charInstIds": [
+                13,
+                9,
+                110
+              ],
+              "completeConstructTime": 1605542337
+            },
+            "slot_24": {
+              "level": 3,
+              "state": 2,
+              "roomId": "TRADING",
+              "charInstIds": [
+                29,
+                16,
+                -1
+              ],
+              "completeConstructTime": 1617297107
+            },
+            "slot_36": {
+              "level": 3,
+              "state": 2,
+              "roomId": "MEETING",
+              "charInstIds": [
+                14,
+                88
+              ],
+              "completeConstructTime": 1628058402
+            },
+            "slot_15": {
+              "level": 3,
+              "state": 2,
+              "roomId": "MANUFACTURE",
+              "charInstIds": [
+                -1,
+                -1,
+                -1
+              ],
+              "completeConstructTime": 1627640018
+            },
+            "slot_14": {
+              "level": 3,
+              "state": 2,
+              "roomId": "MANUFACTURE",
+              "charInstIds": [
+                23,
+                63,
+                3
+              ],
+              "completeConstructTime": 1627639799
+            },
+            "slot_23": {
+              "level": 2,
+              "state": 2,
+              "roomId": "HIRE",
+              "charInstIds": [
+                37
+              ],
+              "completeConstructTime": 1604420630
+            },
+            "slot_6": {
+              "level": 2,
+              "state": 2,
+              "roomId": "MANUFACTURE",
+              "charInstIds": [
+                -1,
+                -1
+              ],
+              "completeConstructTime": 1604588101
+            },
+            "slot_5": {
+              "level": 2,
+              "state": 2,
+              "roomId": "TRADING",
+              "charInstIds": [
+                113,
+                40
+              ],
+              "completeConstructTime": 1605386091
+            },
+            "slot_13": {
+              "level": 3,
+              "state": 2,
+              "roomId": "TRAINING",
+              "charInstIds": [
+                101,
+                81
+              ],
+              "completeConstructTime": 1628473557
+            },
+            "slot_28": {
+              "level": 4,
+              "state": 2,
+              "roomId": "DORMITORY",
+              "charInstIds": [
+                118,
+                115,
+                39,
+                102,
+                35
+              ],
+              "completeConstructTime": 1627632904
+            },
+            "slot_20": {
+              "level": 3,
+              "state": 2,
+              "roomId": "DORMITORY",
+              "charInstIds": [
+                15,
+                60,
+                5,
+                17,
+                116
+              ],
+              "completeConstructTime": 1604420648
+            },
+            "slot_9": {
+              "level": 2,
+              "state": 2,
+              "roomId": "DORMITORY",
+              "charInstIds": [
+                2,
+                18,
+                95,
+                77,
+                64
+              ],
+              "completeConstructTime": 1604587962
+            },
+            "slot_26": {
+              "level": 3,
+              "state": 2,
+              "roomId": "POWER",
+              "charInstIds": [
+                21
+              ],
+              "completeConstructTime": 1605618986
+            },
+            "slot_32": {
+              "level": 3,
+              "state": 2,
+              "roomId": "WORKSHOP",
+              "charInstIds": [
+                56
+              ],
+              "completeConstructTime": 1604683402
+            },
+            "slot_16": {
+              "level": 3,
+              "state": 2,
+              "roomId": "POWER",
+              "charInstIds": [
+                38
+              ],
+              "completeConstructTime": 1627119888
+            },
+            "slot_7": {
+              "level": 2,
+              "state": 2,
+              "roomId": "POWER",
+              "charInstIds": [
+                -1
+              ],
+              "completeConstructTime": 1604588041
+            }
+          },
+          "rooms": {
+            "CONTROL": {
+              "slot_34": {
+                "buff": {
+                  "global": {
+                    "apCost": 0,
+                    "roomCnt": {}
+                  },
+                  "manufacture": {
+                    "speed": 0,
+                    "sSpeed": 0,
+                    "roomSpeed": {}
+                  },
+                  "trading": {
+                    "speed": 0,
+                    "sSpeed": 0,
+                    "roomSpeed": {}
+                  },
+                  "meeting": {
+                    "clue": 0
+                  },
+                  "apCost": {},
+                  "point": {}
+                },
+                "apCost": -100,
+                "lastUpdateTime": 1628672224
+              }
+            },
+            "MANUFACTURE": {
+              "slot_25": {
+                "buff": {
+                  "apCost": {
+                    "self": {}
+                  },
+                  "speed": 0,
+                  "sSpeed": 0,
+                  "capacity": 0,
+                  "maxSpeed": -1,
+                  "tSpeed": {},
+                  "cSpeed": 0,
+                  "capFrom": {},
+                  "point": {},
+                  "flag": {}
+                },
+                "state": 1,
+                "formulaId": "4",
+                "remainSolutionCnt": 96,
+                "outputSolutionCnt": 3,
+                "lastUpdateTime": 1628672224,
+                "saveTime": 0,
+                "tailTime": 512.08,
+                "apCost": -100,
+                "completeWorkTime": 1628775392,
+                "capacity": 54,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                },
+                "processPoint": 512.08
+              },
+              "slot_15": {
+                "buff": {
+                  "apCost": {
+                    "self": {}
+                  },
+                  "speed": 0,
+                  "sSpeed": 0,
+                  "capacity": 0,
+                  "maxSpeed": -1,
+                  "tSpeed": {},
+                  "cSpeed": 0,
+                  "capFrom": {},
+                  "point": {},
+                  "flag": {}
+                },
+                "state": 0,
+                "formulaId": "4",
+                "remainSolutionCnt": 99,
+                "outputSolutionCnt": 0,
+                "lastUpdateTime": 1628672224,
+                "saveTime": 0,
+                "tailTime": 55,
+                "apCost": -100,
+                "completeWorkTime": -1,
+                "capacity": 54,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                },
+                "processPoint": 602.61
+              },
+              "slot_14": {
+                "buff": {
+                  "apCost": {
+                    "self": {}
+                  },
+                  "speed": 0,
+                  "sSpeed": 0,
+                  "capacity": 0,
+                  "maxSpeed": -1,
+                  "flag": {},
+                  "tSpeed": {},
+                  "cSpeed": 0,
+                  "capFrom": {},
+                  "point": {}
+                },
+                "state": 1,
+                "formulaId": "3",
+                "remainSolutionCnt": 98,
+                "outputSolutionCnt": 1,
+                "lastUpdateTime": 1628672224,
+                "saveTime": 0,
+                "tailTime": 9399.31,
+                "apCost": -100,
+                "completeWorkTime": 1628760025,
+                "capacity": 54,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                },
+                "processPoint": 9399.31
+              },
+              "slot_6": {
+                "buff": {
+                  "apCost": {
+                    "self": {}
+                  },
+                  "speed": 0,
+                  "sSpeed": 0,
+                  "capacity": 0,
+                  "maxSpeed": -1,
+                  "tSpeed": {},
+                  "cSpeed": 0,
+                  "capFrom": {},
+                  "point": {},
+                  "flag": {}
+                },
+                "state": 0,
+                "formulaId": "3",
+                "remainSolutionCnt": 99,
+                "outputSolutionCnt": 0,
+                "lastUpdateTime": 1628672224,
+                "saveTime": 0,
+                "tailTime": 44,
+                "apCost": -100,
+                "completeWorkTime": -1,
+                "capacity": 36,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                },
+                "processPoint": 10411.18
+              }
+            },
+            "TRADING": {
+              "slot_24": {
+                "buff": {
+                  "speed": 0,
+                  "limit": 0,
+                  "apCost": {
+                    "all": 0,
+                    "single": {},
+                    "self": {}
+                  },
+                  "rate": {},
+                  "tgw": [],
+                  "point": {},
+                  "manuLines": {},
+                  "orderBuff": []
+                },
+                "state": 1,
+                "lastUpdateTime": 1628672224,
+                "strategy": "O_GOLD",
+                "stockLimit": 10,
+                "apCost": 0,
+                "stock": [
+                  {
+                    "instId": 1641,
+                    "delivery": [
+                      {
+                        "id": "3003",
+                        "type": "MATERIAL",
+                        "count": 4
+                      }
+                    ],
+                    "type": "O_GOLD",
+                    "gain": {
+                      "type": "GOLD",
+                      "id": "4001",
+                      "count": 2000
+                    },
+                    "buff": []
+                  }
+                ],
+                "next": {
+                  "order": 1643,
+                  "processPoint": 9793,
+                  "maxPoint": 12600,
+                  "speed": 1
+                },
+                "completeWorkTime": 1628682017,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                }
+              },
+              "slot_5": {
+                "buff": {
+                  "speed": 0,
+                  "limit": 0,
+                  "apCost": {
+                    "all": 0,
+                    "single": {},
+                    "self": {}
+                  },
+                  "rate": {},
+                  "tgw": [],
+                  "point": {},
+                  "manuLines": {},
+                  "orderBuff": []
+                },
+                "state": 1,
+                "lastUpdateTime": 1628672224,
+                "strategy": "O_GOLD",
+                "stockLimit": 8,
+                "apCost": 0,
+                "stock": [],
+                "next": {
+                  "order": 1642,
+                  "processPoint": 1808,
+                  "maxPoint": 12600,
+                  "speed": 1
+                },
+                "completeWorkTime": 1628674032,
+                "display": {
+                  "base": -100,
+                  "buff": 0
+                }
+              }
+            },
+            "MEETING": {
+              "slot_36": {
+                "buff": {
+                  "speed": 0.3,
+                  "weight": {
+                    "RHINE": 0,
+                    "PENGUIN": 0,
+                    "BLACKSTEEL": 0,
+                    "URSUS": 0,
+                    "GLASGOW": 0,
+                    "KJERAG": 0,
+                    "RHODES": 0
+                  },
+                  "flag": {}
+                },
+                "state": 0,
+                "speed": 0,
+                "processPoint": 0,
+                "ownStock": [
+                  {
+                    "id": "065818101#162#1627425761",
+                    "type": "RHODES",
+                    "number": 1,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_109_fmout",
+                        "level": 47,
+                        "skin": "char_109_fmout#1",
+                        "evolvePhase": 1
+                      },
+                      {
+                        "charId": "char_118_yuki",
+                        "level": 10,
+                        "skin": "char_118_yuki#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 1
+                  },
+                  {
+                    "id": "065818101#165#1627555953",
+                    "type": "URSUS",
+                    "number": 3,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_133_mm",
+                        "level": 1,
+                        "skin": "char_133_mm#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_236_rope",
+                        "level": 45,
+                        "skin": "char_236_rope#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 1
+                  },
+                  {
+                    "id": "065818101#168#1627746740",
+                    "type": "GLASGOW",
+                    "number": 3,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_133_mm",
+                        "level": 1,
+                        "skin": "char_133_mm#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_236_rope",
+                        "level": 45,
+                        "skin": "char_236_rope#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 1
+                  },
+                  {
+                    "id": "065818101#169#1627802990",
+                    "type": "PENGUIN",
+                    "number": 1,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_133_mm",
+                        "level": 1,
+                        "skin": "char_133_mm#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_236_rope",
+                        "level": 45,
+                        "skin": "char_236_rope#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 1
+                  },
+                  {
+                    "id": "065818101#170#1627859240",
+                    "type": "KJERAG",
+                    "number": 1,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_133_mm",
+                        "level": 1,
+                        "skin": "char_133_mm#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_236_rope",
+                        "level": 45,
+                        "skin": "char_236_rope#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 1
+                  },
+                  {
+                    "id": "065818101#166#1627559007",
+                    "type": "KJERAG",
+                    "number": 2,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_133_mm",
+                        "level": 1,
+                        "skin": "char_133_mm#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_236_rope",
+                        "level": 45,
+                        "skin": "char_236_rope#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 0
+                  },
+                  {
+                    "id": "065818101#171#1627901471",
+                    "type": "RHODES",
+                    "number": 1,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_118_yuki",
+                        "level": 10,
+                        "skin": "char_118_yuki#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_009_12fce",
+                        "level": 15,
+                        "skin": "char_009_12fce#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 0
+                  },
+                  {
+                    "id": "065818101#172#1627942380",
+                    "type": "PENGUIN",
+                    "number": 3,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_118_yuki",
+                        "level": 10,
+                        "skin": "char_118_yuki#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_009_12fce",
+                        "level": 15,
+                        "skin": "char_009_12fce#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 0
+                  },
+                  {
+                    "id": "065818101#173#1628047040",
+                    "type": "KJERAG",
+                    "number": 2,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_118_yuki",
+                        "level": 10,
+                        "skin": "char_118_yuki#1",
+                        "evolvePhase": 0
+                      },
+                      {
+                        "charId": "char_009_12fce",
+                        "level": 15,
+                        "skin": "char_009_12fce#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 0
+                  },
+                  {
+                    "id": "065818101#174#1628142408",
+                    "type": "PENGUIN",
+                    "number": 3,
+                    "uid": "065818101",
+                    "name": "\xe7\x85\x8a",
+                    "nickNum": "9715",
+                    "chars": [
+                      {
+                        "charId": "char_106_franka",
+                        "level": 1,
+                        "skin": "char_106_franka#1",
+                        "evolvePhase": 0
+                      }
+                    ],
+                    "inUse": 0
+                  }
+                ],
+                "receiveStock": [],
+                "board": {
+                  "GLASGOW": "065818101#168#1627746740",
+                  "KJERAG": "065818101#170#1627859240",
+                  "URSUS": "065818101#165#1627555953",
+                  "RHODES": "065818101#162#1627425761",
+                  "PENGUIN": "065818101#169#1627802990"
+                },
+                "socialReward": {
+                  "daily": 0,
+                  "search": 0
+                },
+                "dailyReward": {
+                  "id": "065818101#175#1628147290",
+                  "type": "BLACKSTEEL",
+                  "number": 2,
+                  "uid": "065818101",
+                  "name": "\xe7\x85\x8a",
+                  "nickNum": "9715",
+                  "chars": [
+                    {
+                      "charId": "char_106_franka",
+                      "level": 1,
+                      "skin": "char_106_franka#1",
+                      "evolvePhase": 0
+                    }
+                  ],
+                  "inUse": 0
+                },
+                "expiredReward": 0,
+                "received": 0,
+                "infoShare": {
+                  "ts": 1627726354,
+                  "reward": 0
+                },
+                "lastUpdateTime": 1628672224,
+                "mfc": {},
+                "completeWorkTime": 1628192272
+              }
+            },
+            "HIRE": {
+              "slot_23": {
+                "buff": {
+                  "speed": 0,
+                  "meeting": {
+                    "speedUp": 0
+                  },
+                  "stack": {
+                    "char": [
+                      {
+                        "refresh": 3
+                      }
+                    ],
+                    "clueWeight": {}
+                  },
+                  "point": {},
+                  "apCost": {
+                    "self": {}
+                  }
+                },
+                "state": 0,
+                "refreshCount": 3,
+                "lastUpdateTime": 1628672224,
+                "processPoint": 4320000,
+                "speed": 100,
+                "completeWorkTime": -1
+              }
+            },
+            "TRAINING": {
+              "slot_13": {
+                "buff": {
+                  "speed": 0.35,
+                  "lvEx": {
+                    "-1": 0
+                  },
+                  "lvCost": {}
+                },
+                "state": 0,
+                "lastUpdateTime": 1628672224,
+                "trainee": {
+                  "charInstId": 81,
+                  "state": 3,
+                  "targetSkill": -1,
+                  "processPoint": -1,
+                  "speed": 1.35,
+                  "charTemplate": null
+                },
+                "trainer": {
+                  "charInstId": 101,
+                  "state": 3
+                }
+              }
+            },
+            "DORMITORY": {
+              "slot_28": {
+                "buff": {
+                  "apCost": {
+                    "all": 0,
+                    "single": {
+                      "target": null,
+                      "value": 0
+                    },
+                    "self": {}
+                  },
+                  "point": {}
+                },
+                "comfort": 4000,
+                "diySolution": {
+                  "wallPaper": "furni_kitchen_wallpaper_01",
+                  "floor": "furni_kitchen_floor_01",
+                  "carpet": [
+                    {
+                      "id": "furni_kitchen_carpet_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 0
+                      }
+                    }
+                  ],
+                  "other": [
+                    {
+                      "id": "furni_kitchen_bed_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_framed_01",
+                      "coordinate": {
+                        "x": 2,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_airPurifier_01",
+                      "coordinate": {
+                        "x": 6,
+                        "y": 5
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_partition_01",
+                      "coordinate": {
+                        "x": 9,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_ceilingLight_01",
+                      "coordinate": {
+                        "x": 6,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_wallSticker_01",
+                      "coordinate": {
+                        "x": 1,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_downlight_01",
+                      "coordinate": {
+                        "x": 14,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_ceiling_01",
+                      "coordinate": {
+                        "x": 14,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_lamp_01",
+                      "coordinate": {
+                        "x": 16,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_wallArt_01",
+                      "coordinate": {
+                        "x": 15,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_ceilingLamps_01",
+                      "coordinate": {
+                        "x": 21,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_worktop_01",
+                      "coordinate": {
+                        "x": 21,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_islandWorktop_01",
+                      "coordinate": {
+                        "x": 18,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_oven_01",
+                      "coordinate": {
+                        "x": 30,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_stool_01",
+                      "coordinate": {
+                        "x": 19,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_stool_01",
+                      "coordinate": {
+                        "x": 22,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_stool_01",
+                      "coordinate": {
+                        "x": 28,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_kitchen_pottedPlant_01",
+                      "coordinate": {
+                        "x": 28,
+                        "y": 6
+                      }
+                    }
+                  ]
+                }
+              },
+              "slot_20": {
+                "buff": {
+                  "apCost": {
+                    "all": 0,
+                    "single": {
+                      "target": null,
+                      "value": 0
+                    },
+                    "self": {}
+                  },
+                  "point": {}
+                },
+                "comfort": 3000,
+                "diySolution": {
+                  "wallPaper": "furni_rococo_wallpaper_01",
+                  "floor": "furni_rococo_floor_01",
+                  "carpet": [
+                    {
+                      "id": "furni_rococo_carpet_01",
+                      "coordinate": {
+                        "x": 28,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_doorMat_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 6
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_doorMat_01",
+                      "coordinate": {
+                        "x": 32,
+                        "y": 6
+                      }
+                    }
+                  ],
+                  "other": [
+                    {
+                      "id": "furni_rococo_cabinet_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_bustStatue_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_table_01",
+                      "coordinate": {
+                        "x": 6,
+                        "y": 6
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_mainSeat_01",
+                      "coordinate": {
+                        "x": 16,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 13,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 19,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 10,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 22,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 7,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_secondarySeat_01",
+                      "coordinate": {
+                        "x": 25,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_stool_01",
+                      "coordinate": {
+                        "x": 3,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_fireplace_01",
+                      "coordinate": {
+                        "x": 28,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_brazier_01",
+                      "coordinate": {
+                        "x": 30,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_observationDeck_01",
+                      "coordinate": {
+                        "x": 8,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_pillar_01",
+                      "coordinate": {
+                        "x": 11,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_pillar_01",
+                      "coordinate": {
+                        "x": 21,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_framedArt_01",
+                      "coordinate": {
+                        "x": 5,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_mirror_01",
+                      "coordinate": {
+                        "x": 29,
+                        "y": 5
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_ceilingLight1_01",
+                      "coordinate": {
+                        "x": 15,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_ceilingLight2_01",
+                      "coordinate": {
+                        "x": 5,
+                        "y": 3
+                      }
+                    },
+                    {
+                      "id": "furni_rococo_ceilingLight2_01",
+                      "coordinate": {
+                        "x": 25,
+                        "y": 3
+                      }
+                    }
+                  ]
+                }
+              },
+              "slot_9": {
+                "buff": {
+                  "apCost": {
+                    "all": 0,
+                    "single": {
+                      "target": null,
+                      "value": 0
+                    },
+                    "self": {}
+                  },
+                  "point": {}
+                },
+                "comfort": 2000,
+                "diySolution": {
+                  "wallPaper": null,
+                  "floor": "furni_bolivar_floor_01",
+                  "carpet": [
+                    {
+                      "id": "furni_bolivar_carpet_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 1
+                      }
+                    }
+                  ],
+                  "other": [
+                    {
+                      "id": "furni_bolivar_sofa_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_soundSystem_01",
+                      "coordinate": {
+                        "x": 3,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_fireplace_01",
+                      "coordinate": {
+                        "x": 9,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_pottedplant_01",
+                      "coordinate": {
+                        "x": 15,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_coffeeTable_01",
+                      "coordinate": {
+                        "x": 22,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_bed_01",
+                      "coordinate": {
+                        "x": 26,
+                        "y": 1
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_ceilinglamp_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 2
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_curtain_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 5
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_wall_01",
+                      "coordinate": {
+                        "x": 0,
+                        "y": 0
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_pot_01",
+                      "coordinate": {
+                        "x": 16,
+                        "y": 4
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_ceilinglamp_01",
+                      "coordinate": {
+                        "x": 18,
+                        "y": 7
+                      }
+                    },
+                    {
+                      "id": "furni_bolivar_ceilinglamp_01",
+                      "coordinate": {
+                        "x": 12,
+                        "y": 7
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "POWER": {
+              "slot_26": {
+                "buff": {
+                  "laborSpeed": 0,
+                  "apCost": {
+                    "self": {}
+                  },
+                  "global": {
+                    "roomCnt": {}
+                  }
+                }
+              },
+              "slot_16": {
+                "buff": {
+                  "laborSpeed": 0,
+                  "apCost": {
+                    "self": {}
+                  },
+                  "global": {
+                    "roomCnt": {}
+                  }
+                }
+              },
+              "slot_7": {
+                "buff": {
+                  "laborSpeed": 0,
+                  "apCost": {
+                    "self": {}
+                  },
+                  "global": {
+                    "roomCnt": {}
+                  }
+                }
+              }
+            },
+            "WORKSHOP": {
+              "slot_32": {
+                "buff": {
+                  "rate": {
+                    "all": 1,
+                    "W_EVOLVE": 1,
+                    "W_BUILDING": 1
+                  },
+                  "frate": [],
+                  "cost": {
+                    "type": "",
+                    "limit": 0,
+                    "reduction": 0
+                  },
+                  "costRe": {
+                    "type": "",
+                    "from": 0,
+                    "change": 0
+                  },
+                  "recovery": {
+                    "type": "",
+                    "pace": 0,
+                    "recover": 0
+                  },
+                  "goldFree": {},
+                  "costForce": {
+                    "type": "",
+                    "cost": 0
+                  }
+                },
+                "statistic": {
+                  "noAddition": 0
+                }
+              }
+            }
+          },
+          "status": {
+            "labor": {
+              "buffSpeed": 0,
+              "processPoint": 100,
+              "value": 166,
+              "lastUpdateTime": 1628672224,
+              "maxValue": 166
+            }
+          }
+        },
+        "event": {
+          "building": 1628674032
+        }
+      },
+      "deleted": {}
+    },
+    // Response
+  }
+]

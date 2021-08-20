@@ -1,0 +1,12 @@
+{
+  "uid": 000000001, // 用户ID
+  "secret": "", // 用户Secret
+  "X-Unity-Version": "2017.4.39f1",
+  "seqnum": 7, // 本次登录请求次数
+  "Content-Type": "application/json",
+  "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; SM-N935F Build/PPR1.180610.011)",
+  "Host": "ak-gs-gf.hypergryph.com",
+  "Connection": "Keep-Alive",
+  "Accept-Encoding": "gzip",
+  "Content-Length": 2 // 请求内容长度
+}

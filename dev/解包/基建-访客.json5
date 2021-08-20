@@ -1,0 +1,14 @@
+// POST https://ak-gs-gf.hypergryph.com/building/getInfoShareVisitorsNum HTTP/1.1
+// 基建访客数据 载入基建时请求
+
+[
+  // Request
+  {},
+  // Request
+
+  // Response
+  {
+    "num": 1
+  }
+  // Responce
+]

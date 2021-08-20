@@ -37,6 +37,7 @@ class Player:
         }
         self.devices = adb.AndroidDebugBridge(devices_id)
 
+    # ====轮子重写=====
     def tap_loaction(self, *args: str) -> bool:
         """
         根据固定的屏幕坐标点击, 如果是二维数组(左上角,右上角)那么随机取点
@@ -98,6 +99,12 @@ class Player:
         else:
             # logger.info()
             return False
+
+    # ====游戏具体方法====
+    def login(self):
+        if self.tap_screenshot('登录', '账号管理.jpeg'):
+            if self.tap_screenshot('登录', '账号登录.jpeg'):
+                pass
 
     def signin(self):
         """
@@ -207,15 +214,15 @@ class Player:
         在卡关界面,进入卡关
         :return: 是否成功
         """
-        if self.exist_screenshot('卡关','代理指挥开启.jpeg'):  # 在卡关界面判断是否可代理
+        if self.exist_screenshot('卡关', '代理指挥开启.jpeg'):  # 在卡关界面判断是否可代理
             logger.info("本卡关可使用代理指挥")
             for j in range(5):  # 5次循环尝试
-                location = self.tap_screenshot('卡关','开始行动.jpeg')  # 点击开始行动
+                location = self.tap_screenshot('卡关', '开始行动.jpeg')  # 点击开始行动
                 if location:
                     logger.info(f"开始行动 成功进入编队")
                     time.sleep(1)  # 等待进入
                     for i in range(3):  # 3次循环尝试
-                        location2 = self.tap_screenshot('卡关','开始行动干员.jpeg')
+                        location2 = self.tap_screenshot('卡关', '开始行动干员.jpeg')
                         if location2:
                             logger.info(f"干员开始行动 成功进入卡关 第{i + 1}次尝试 ")
                             break
@@ -236,20 +243,20 @@ class Player:
         # 判读是否出卡关
         over = False
         i = 0
-        time.sleep(45)
+        time.sleep(30)
         while over is False:  # while not over
             i += 1
             screenshot = self.devices.get_screenshot()
-            if self.exist_screenshot('卡关','行动结束.jpeg'):
+            if self.exist_screenshot('卡关', '行动结束.jpeg'):
                 logger.info(f"卡关已结束 退回界面")
                 self.devices.tap(randint(100, 1800),
-                                 randint(100, 900))  # 随机点出结算屏幕
+                                 randint(300, 600))  # 随机点出结算屏幕
                 time.sleep(2)  # 结算点出后,加载的时间
                 # todo 如果还未加载出卡关
                 over = True
             else:
                 logger.info(f"卡关还未结束 第{i}次尝试")
-                time.sleep(15)  # 等待下一次屏幕检查
+                time.sleep(5)  # 等待下一次屏幕检查
         return True
 
     def receive_task(self):
@@ -261,7 +268,7 @@ class Player:
         if self.tap_loaction('index', 'task'):
             time.sleep(2)
             if self.tap_screenshot('任务', '收集全部.jpeg'):
-                while not self.exist_screenshot('任务','主线任务.jpeg'):
+                while not self.exist_screenshot('任务', '主线任务.jpeg'):
                     time.sleep(3)
                     self.devices.tap(randint(300, 1600), randint(500, 1080))
                 time.sleep(1)
@@ -275,7 +282,6 @@ class Player:
         else:
             logger.info("未找到任务")
         self.back_to_index()
-
 
     def riic(self):
         """
@@ -293,7 +299,6 @@ class Player:
             self.tap_loaction('riic', 'matter')
             time.sleep(1)
         return True
-
 
     def anni(self, rtype="a"):
         """
@@ -324,11 +329,10 @@ class Player:
         time.sleep(3)
         return True
 
-
     def resource(self, rtype: int):
         """
 
-        :param rtype: 1为空中威胁 2为货物运送 3为粉碎防御 4为资源保障
+        :param rtype: 1为空中威胁 2为货物运送 3为粉碎防御 4为资源保障 5为战术演习
         :return:
         """
         location = utils.match_image(utils.img_np_cv2(
