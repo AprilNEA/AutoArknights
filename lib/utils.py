@@ -4,13 +4,9 @@
 # @license: MIT License
 # @contact: sukeycz0@gmail.com
 # @software: PyCharm
-# @project : ArknightsAutoHelper
 # @github: GreenSulley/ArknightsAutoHelper
-# @file: utils.py
-# @createtime: 2021/7/29 17:00 Green Sulley
-# @lastupdate: 2021/7/30 11:37 Green Sulley
 # @desc: Arknights Auto Helper based on ADB and Python
-
+import time
 import cv2
 import base64
 import numpy as np
@@ -44,12 +40,20 @@ def base64_to_cv2(base64_str: str):
                         cv2.IMREAD_COLOR)
 
 
-def match_image(temp, target):
-    # False: 0.13017292320728302
-    # True: 9.214816964231431e-05
+def match_image(temp, target, accuracy=0.1):
     h, w, s = temp.shape
     result = cv2.matchTemplate(target, temp, cv2.TM_SQDIFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
-    if min_val > 0.1:
+    if min_val > accuracy:
         return False
     return min_loc[0] + (w / 2), min_loc[1] + (h / 2)
+
+
+def get_bjtime():
+    tn = time.localtime(time.time())
+    return {
+        "daytime": f"{tn.tm_year}-{tn.tm_mon}-{tn.tm_mday}",
+        "mday": int(tn.tm_mday),
+        "hour": int(tn.tm_hour),
+        "wday": int(tn.tm_wday)
+    }
