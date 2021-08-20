@@ -344,15 +344,24 @@ class Player:
             self.devices.tap(data_tap_location["terminal"]["resource"][0],
                              data_tap_location["terminal"]["resource"][1])
             time.sleep(0.2)
+            self.devices.swipe(1900, randint(500, 600), 1500, randint(500, 600))
             # 向左滑动,使四个资源全部展示在屏幕上
-            temp = utils.img_np_cv2(f'image/资源收集/{rtype}y.jpeg')
-            location = utils.match_image(temp, self.devices.get_screenshot())
-            if location:
-                self.devices.tap(location[0], location[1])
-
-
-if __name__ == '__main__':
-    xuan = Player(config["account"][1]["username"],
-                  config["account"][1]["password"], '9887bc394436343530')
-    # xuan.login()
-    xuan.receive_task()
+            if rtype == 1:
+                self.tap_screenshot('资源收集', '空中威胁.jpeg')
+                a = 0
+            elif rtype == 2:
+                self.tap_screenshot('资源收集', '货物运送.jpeg')
+                a = 'CE'
+            elif rtype == 3:
+                self.tap_screenshot('资源收集', '粉碎防御.jpeg')
+                a = 'AP'
+            elif rtype == 4:
+                self.tap_screenshot('资源收集', '资源保障.jpeg')
+                a = 0
+            else:  # rtype == 5:
+                self.tap_screenshot('资源收集', '战术演习.jpeg')
+                a = 'LS'
+            for i in range(5):
+                if self.tap_screenshot('资源收集', f'{a}-{5 - i}.jpeg'):
+                    return True
+            return False
