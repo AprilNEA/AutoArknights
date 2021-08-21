@@ -17,7 +17,7 @@ class ArkAPI:
             "uid": uid,
             "secret": secret,
             "X-Unity-Version": "2017.4.39f1",
-            "User-Agent":
+            "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; SM-N935F Build/PPR1.180610.011)"
         }
 
     def get_sync(self) -> Dict:
@@ -84,5 +84,13 @@ class ArkAPI:
             json={})
         return rp.json()
 
-
-if __name__ == '__main__':
+    def use_item(self, inst_id, item_id, cnt):
+        rp = self.session.post(
+            url='https://ak-as-gf.hypergryph.com/user/useItem',
+            headers=self.headers,
+            json={
+                "instId": inst_id,
+                "itemId": item_id,
+                "cnt": cnt
+            })
+        return rp.json()
