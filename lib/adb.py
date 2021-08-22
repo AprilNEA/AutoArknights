@@ -13,6 +13,7 @@
 import os
 import re
 import subprocess
+import platform
 
 import cv2
 import numpy as np
@@ -126,10 +127,16 @@ class AndroidDebugBridge:
             return pack3
 
     def get_activity(self, filter=''):
-        # win
-        # body = self.adb('adb shell dumpsys activity top | findstr ACTIVITY')
-        # Linux
-        body = self.adb_shell('adb shell dumpsys activity top | grep ACTIVITY')
+        """
+        获取当前运行进程信息
+        :param filter:
+        :return:
+        """
+        if platform.system().lower() == 'windows':
+            body = self.adb('adb shell dumpsys activity top | findstr ACTIVITY')
+        else:
+            body = self.adb_shell(
+                'adb shell dumpsys activity top | grep ACTIVITY')
         for pack_info in body:
             info = pack_info.split()[1]
             if filter in info:
@@ -146,11 +153,17 @@ class AndroidDebugBridge:
         Take a screenshot of the current device
         :return: image in cv2 format
         """
-        # 趟坑，Windows传输编码导致png数据损坏：.replace(b'\r\n', b'\n')
-        screenshot = self.adb_shell('adb shell screencap -p')
-        screenshot = cv2.imdecode(np.frombuffer(screenshot, np.uint8),
-                                  cv2.IMREAD_COLOR)
-        return screenshot
+        # 趟坑，Windows传输编码导致png数据损坏
+        try:
+            screenshot = self.adb_shell('adb shell screencap -p')
+        except:
+            pass
+        else:
+            if platform.system().lower() == 'windows':
+                screenshot = screenshot.replace(b'\r\n', b'\n')
+            screenshot = cv2.imdecode(np.frombuffer(screenshot, np.uint8),
+                                      cv2.IMREAD_COLOR)
+            return screenshot
 
     def tap(self, x, y, duration=0):
         if duration:
