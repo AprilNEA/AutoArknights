@@ -27,9 +27,11 @@ from tencentcloud.ocr.v20181119 import ocr_client, models
 
 from lib import utils
 
-config = yaml.load(pkgutil.get_data('lib', '../config.yaml'), Loader=yaml.FullLoader)
+config = yaml.load(pkgutil.get_data('lib', '../config.yaml'),
+                   Loader=yaml.FullLoader)
 
 character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
+
 
 def tencent_ocr(img_base64: bytes):
     import ssl
@@ -61,9 +63,3 @@ def tencent_ocr(img_base64: bytes):
     except TencentCloudSDKException as err:
         # print(err)
         return err
-
-if __name__ == '__main__':
-    import adb
-    devices = adb.AndroidDebugBridge('9887bc394436343530')
-    a = devices.get_screenshot()
-    print(tencent_ocr(utils.cv2_to_base64(a)))
