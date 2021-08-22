@@ -6,11 +6,17 @@
 # @software: PyCharm
 # @github: GreenSulley/ArknightsAutoHelper
 # @desc: Arknights Auto Helper based on ADB and Python
+import json
 import time
+import pkgutil
+
+import requests
 import cv2
 import base64
 import numpy as np
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
+
+from lib.logger import logger
 
 
 def img_cv2(img_path: str):
@@ -57,3 +63,28 @@ def get_bjtime():
         "hour": int(tn.tm_hour),
         "wday": int(tn.tm_wday)
     }
+
+
+def updata_gamedata():
+    logger.info("开始检查数据文件更新")
+    update_info = json.loads(
+        pkgutil.get_data('lib', '../data/gamedata/info.json'))
+    new_update_info = None
+    for update_url, files in update_info.items():
+        parent_info = requests.get(url=update_url).json()
+        for filename, key in files.items():
+            for parent_file in parent_info["tree"]:
+                if parent_file["path"] == filename:
+                    if parent_file["sha"] != key["sha"]:
+                        with open(f"../data/gamedata/{filename}", "w") as f:
+                            f.write(requests.get(url=key["url"]).text)
+                        new_update_info = update_info
+                        new_update_info[update_url][filename][
+                            "sha"] = parent_file["sha"]
+    if new_update_info:
+        with open(f"../data/gamedata/info.json", "w") as f:
+            f.write(json.dumps(new_update_info))
+
+
+if __name__ == '__main__':
+    updata_gamedata()
