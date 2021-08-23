@@ -16,8 +16,6 @@ from typing import List, Tuple
 from random import randint, uniform
 
 from lib import adb
-from lib import api
-from lib import mitm
 from lib import utils
 from lib import recruitment  # 公招
 from lib import notifier
@@ -34,15 +32,11 @@ with open('data/tap_location.yaml') as f:
 class Player:
     def __init__(self, account_id, devices_id):
         self.__account_id = account_id
-        self.__uid = config["account"][self.__account_id]["token"]
-        self.__username = config["account"][self.__account_id]["account"]
-        self.__token = config["account"][account_id]["token"]
-
-        self.mode = config["mode"]
+        self.__username = config["account"][account_id]["account"]
         self.adb = adb.AndroidDebugBridge(devices_id)
-        if config["mode"] != 'img':
-            # mitm.start(self.__uid)
-            self.api = api.ArkAPI(self.__uid, self.__token, self.__username)
+        self.__datapath = utils.get_path('lib', f"../data/account/{self.__username}/")
+        if not os.path.exists(self.__datapath):
+            os.mkdir(self.__datapath)
 
     # ====轮子重写=====
     def tap_loaction(self, *args: str) -> bool:
@@ -161,6 +155,7 @@ class Player:
                 logger.info("找不到返回主页按钮")
         else:
             logger.info("找不到顶部主页按钮")
+        time.sleep(1)
         if self.exist_screenshot('终端.jpeg'):
             return True
         else:
@@ -173,58 +168,49 @@ class Player:
         自动领取任务
         :return:
         """
-        if self.mode['global'] == 'img' or (
-                self.mode['global'] == 'custom' and self.mode['task'] == 'img'):
-            self.back_to_index()
-            if self.tap_loaction('index', 'task'):
-                time.sleep(2)
+        self.back_to_index()
+        if self.tap_loaction('index', 'task'):
+            time.sleep(2)
+            if self.tap_screenshot('任务', '收集全部.jpeg'):
+                while not self.exist_screenshot('任务', '主线任务.jpeg'):
+                    time.sleep(3)
+                    self.adb.tap(randint(300, 1600), randint(500, 1080))
+                time.sleep(1)
+            if self.tap_screenshot('任务', '周常任务.jpeg'):
+                time.sleep(1)
                 if self.tap_screenshot('任务', '收集全部.jpeg'):
                     while not self.exist_screenshot('任务', '主线任务.jpeg'):
                         time.sleep(3)
                         self.adb.tap(randint(300, 1600), randint(500, 1080))
                     time.sleep(1)
-                if self.tap_screenshot('任务', '周常任务.jpeg'):
-                    time.sleep(1)
-                    if self.tap_screenshot('任务', '收集全部.jpeg'):
-                        while not self.exist_screenshot('任务', '主线任务.jpeg'):
-                            time.sleep(3)
-                            self.adb.tap(randint(300, 1600), randint(500, 1080))
-                        time.sleep(1)
-            else:
-                logger.info("未找到任务")
-            self.back_to_index()
-        if self.mode['global'] == 'auto' or (
-                self.mode['global'] == 'custom' and self.mode['task'] == 'mitm'):
-            if self.api.auto_confirm_mission("DAILY"):
-                logger.info("API: 自动领取任务成功")
-            else:
-                logger.info("API: 自动领取任务失败")
+        else:
+            logger.info("未找到任务")
+        self.back_to_index()
 
     def public_recruitment(self):
         """
         公共招募,对接OCR
         :return:
         """
-        if self.mode['global'] == 'img' or (
-                self.mode['global'] == 'custom' and self.mode['recruit'] == 'ocr'):
-            # 收菜
+        # 收菜
+        self.back_to_index()
+        if self.tap_screenshot('首页', '公开招募.jpeg'):
             for i in range(3):
                 logger.info(f'招募干员(收菜) 共3次 第{i + 1}次')
                 if self.exist_screenshot('公招', f'完成{i + 1}.jpeg'):
                     self.tap_screenshot('公招', '完成.jpeg')
-                    time.sleep(1)
+                    time.sleep(2)
                     self.adb.tap(1842, 73)
-                    time.sleep(1.5)
+                    time.sleep(2)
                     self.adb.tap(randint(100, 1800), randint(100, 1080))
                     time.sleep(1)
             # 种菜
             for i in range(3):
                 logger.info(f'启动新的公招(种菜) 共3次 第{i + 1}次')
                 self.tap_screenshot('公招', '启动公招.jpeg')
-                time.sleep(0.5)
+                time.sleep(1)
                 while True:
-                    screenshot = self.adb.get_screenshot()[550:725,
-                                 530:1290]
+                    screenshot = self.adb.get_screenshot()[550:725, 530:1290]
                     tags = recruitment.ocr_tags(utils.cv2_to_base64(screenshot))
                     selected_tags = recruitment.recruitment(tags)
                     if selected_tags:
@@ -251,25 +237,42 @@ class Player:
                         self.tap_loaction('recruitment', 'hour', 'reduce')
                         self.tap_screenshot('公招', '开始.jpeg')
                         break
-                time.sleep(1.5)
-        if self.mode['global'] == 'auto' or (
-                self.mode['global'] == 'custom' and self.mode['recruit'] == 'mitm'):
-            pass
+                time.sleep(2)
 
     def social_shop(self):
-        global_mode = self.mode['global']
-        if global_mode == 'auto' or (
-                self.mode['global'] == 'custom' and self.mode['shop'] == 'mitm'):
-            if self.api.receive_social_point():
-                return True
-            else:
-                global_mode = 'img'
-        if global_mode == 'img' or (
-                self.mode['global'] == 'custom' and self.mode['task'] == 'img'):
-            self.back_to_index()
-            if self.tap_screenshot('首页', '采购中心.jpeg'):
-                if self.tap_loaction('shop', 'credit'):
-                    self.tap_loaction('shop', 'get')
+        self.back_to_index()
+        if self.tap_screenshot('首页', '采购中心.jpeg'):
+            time.sleep(0.5)
+            if self.tap_loaction('shop', 'credit'):
+                time.sleep(0.5)
+                self.tap_loaction('shop', 'get')
+                credit_is_enough: bool = True
+                num: int = 0
+                numb = ['first', 'second', 'third', 'forth', 'fifth']
+                while credit_is_enough:
+                    num += 1
+                    if num > 5:
+                        break
+                    screen_bef = self.adb.get_screenshot()
+                    logger.debug(f"尝试购买第{num}个商品")
+                    self.tap_loaction('shop', 'items', numb[num])
+                    time.sleep(0.5)
+                    if self.exist_screenshot('商店', '商品内容.jpeg'):
+                        if self.tap_screenshot('商店', '购买物品.jpeg'):
+                            time.sleep(0.3)
+                            if self.tap_screenshot('商店', '获得物品.jpeg'):
+                                continue
+                            else:
+                                if self.exist_screenshot('商店', '信用不足无法购买.jpeg'):
+                                    logger.info("今日信用已用完")
+                                    break
+                    else:
+                        logger.info("今日信用已用完")
+                        break
+        else:
+            logger.error("无法进入采购中心")
+        self.back_to_index()
+        return True
 
     # =====游戏战斗方法=====
     def fixed_start(self, stuck_name=''):
@@ -309,7 +312,7 @@ class Player:
         proxy_time = None
         if stuck_name:
             try:
-                with open(f'data/account/{self.username}/proxy_time.json',
+                with open(f'{self.__datapath}/proxy_time.json',
                           mode='r',
                           encoding='utf-8') as f:
                     try:
@@ -336,12 +339,15 @@ class Player:
                 logger.info(f"卡关已结束 退回界面")
                 self.adb.tap(randint(100, 1800), randint(300, 600))
                 if stuck_name:
-                    with open(f'data/account/{self.username}/proxy_time.json',
+                    with open(f'{self.__datapath}/proxy_time.json',
                               mode='w', encoding='utf-8') as f:
-                        if stuck_name not in proxy_time or i >= 2:
+                        if proxy_time:
+                            if stuck_name not in proxy_time:
+                                proxy_time[stuck_name] = time.time() - time_start
+                                f.write(json.dumps(proxy_time))
+                        elif i >= 2:
                             proxy_time[stuck_name] = time.time() - time_start
                             f.write(json.dumps(proxy_time))
-
                 time.sleep(2)  # 结算点出后,加载的时间
                 # todo 如果还未加载出卡关
                 over = True
@@ -361,22 +367,17 @@ class Player:
         基建收菜
         :return:
         """
-        if self.mode['global'] == 'img' or (
-                self.mode['global'] == 'custom' and self.mode['riic'] == 'img'):
-            location = utils.match_image(utils.img_np_cv2(
-                'image/基建.jpeg'), self.adb.get_screenshot())  # 点击开始行动
-            self.adb.tap(location[0], location[1])
-            time.sleep(5)  # 保守点,等5秒
-            location = utils.match_image(utils.img_np_cv2(
-                'image/基建/基建待办.jpeg'), self.adb.get_screenshot())  # 点击开始行动
-            self.adb.tap(location[0], location[1])
-            for i in range(3):
-                self.tap_loaction('riic', 'matter')
-                time.sleep(1)
-            return True
-        if self.mode['global'] == 'auto' or (
-                self.mode['global'] == 'custom' and self.mode['riic'] == 'mitm'):
-            pass
+        location = utils.match_image(utils.img_np_cv2(
+            'image/基建.jpeg'), self.adb.get_screenshot())  # 点击开始行动
+        self.adb.tap(location[0], location[1])
+        time.sleep(5)  # 保守点,等5秒
+        location = utils.match_image(utils.img_np_cv2(
+            'image/基建/基建待办.jpeg'), self.adb.get_screenshot())  # 点击开始行动
+        self.adb.tap(location[0], location[1])
+        for i in range(3):
+            self.tap_loaction('riic', 'matter')
+            time.sleep(1)
+        return True
 
     def anni(self, rtype="切尔诺伯格"):
         """
@@ -410,6 +411,7 @@ class Player:
     def resource(self, rtype: str, t: int):
         """
 
+        :param t: 次数
         :param rtype: 1为空中威胁 2为货物运送 3为粉碎防御 4为资源保障 5为战术演习
         :return:
         """
@@ -465,13 +467,14 @@ class Player:
         if stuckid in ['1-7', '4-4', 'JT8-2']:
             self.back_to_index()
             if self.tap_screenshot('终端.jpeg'):
-                time.sleep(1)
+                time.sleep(0.5)
                 if self.tap_loaction('terminal', 'main', 'button'):
                     time.sleep(0.5)
                     # 选择章节
                     if stuckid == '1-7':
-                        if self.exist_screenshot('卡关', '处于觉醒.jpeg'
-                                                 ) or self.tap_screenshot('卡关', '点击觉醒.jpeg'):
+                        # if self.exist_screenshot('卡关', '处于觉醒.jpeg'
+                        #                          ) or self.tap_screenshot('卡关', '点击觉醒.jpeg'):
+                        if self.tap_loaction('terminal', 'mainline', '觉醒'):
                             time.sleep(0.5)
                             while not self.tap_screenshot('卡关',
                                                           '黑暗时代EP01.jpeg'):
@@ -479,8 +482,9 @@ class Player:
                                                t=1000)
                                 time.sleep(0.5)
                     if stuckid == '4-4':
-                        if self.exist_screenshot('卡关', '处于幻灭.jpeg'
-                                                 ) or self.tap_screenshot('卡关', '点击幻灭.jpeg'):
+                        # if self.exist_screenshot('卡关', '处于幻灭.jpeg'
+                        #                          ) or self.tap_screenshot('卡关', '点击幻灭.jpeg'):
+                        if self.tap_loaction('terminal', 'mainline', '幻灭'):
                             while not self.tap_screenshot('卡关', '急性衰竭.jpeg'):
                                 self.adb.swipe(1428, 560, 1428 + 447, 560,
                                                t=1000)
@@ -488,8 +492,9 @@ class Player:
                     time.sleep(0.5)
 
                     if stuckid == 'JT8-2':
-                        if self.exist_screenshot('卡关', '处于幻灭.jpeg'
-                                                 ) or self.tap_screenshot('卡关', '点击幻灭.jpeg'):
+                        # if self.exist_screenshot('卡关', '处于幻灭.jpeg'
+                        #                          ) or self.tap_screenshot('卡关', '点击幻灭.jpeg'):
+                        if self.tap_loaction('terminal', 'mainline', '幻灭'):
                             time.sleep(0.5)
                             while not self.tap_screenshot('卡关', '怒号光明.jpeg'):
                                 self.adb.swipe(1428, 560, 1428 + 447, 560,
