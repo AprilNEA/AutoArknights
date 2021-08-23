@@ -5,6 +5,7 @@
 # @project : GreenSulley/ArknightsAutoHelper
 # @file: ${NAME}.py
 # @desc: Arknights Auto Helper based on ADB and Python
+from lib.logger import logger
 
 class AddHeader:
     """
@@ -15,5 +16,5 @@ class AddHeader:
 
     def response(self, flow):
         self.num = self.num + 1
-        print(self.num)
+        logger.debug(f"Mitmproxy: 处理第{self.num}次请求 {flow.request.url}")
         flow.response.headers["count"] = str(self.num)

@@ -29,26 +29,29 @@ def daliy_limit():
         else:
             time.sleep(300)  # 每过5min检查一次是否开始
     while start1:
-        if 1 << tn["wday"] << 5:  # 周一到周五
+        # 周一到周五
+        if 1 << tn["wday"] << 5:
             if tn["wday"] in [3, 4]:
-                pass
+                player.stuck('1-7', 2)
             else:
-                pass
+                player.stuck('1-7', 3)
             player.anni("a")
             if tn["wday"] == 1:
-                for t in range(2):
-                    player.resource(3)  # 粉碎防御
+                player.resource("粉碎防御", 2)
             if tn["wday"] == 2:
-                for t in range(2):
-                    player.resource(1)  # 粉碎防御
+                player.resource("空中威胁", 2)
             if tn["wday"] == 5:
-                for t in range(2):
-                    player.resource(5)  # 粉碎防御
-        # 4-4x1
-        if tn["wday"] == 6:  # 周六
-            pass
-        if tn["wday"] == 0:  # 周日
-            pass
+                player.resource("战术演习", 2)
+                player.stuck('4-4', 1)
+        # 周六
+        if tn["wday"] == 6:
+            player.stuck('1-7', 3)
+            player.anni("切尔诺伯格")
+            player.resource("战术演习", 2)
+            player.stuck('JT8-2', 1)
+        # 周日
+        if tn["wday"] == 0:
+            player.resource("战术演习", 4)
     start2 = False
     while start2 is False:
         if 22 >= tn["hour"] >= 20:

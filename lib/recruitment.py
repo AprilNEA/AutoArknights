@@ -18,14 +18,14 @@ from typing import List, Tuple, Dict
 
 from lib import ocr
 
-data_character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
+data_character = json.loads(pkgutil.get_data('lib', '../data/gamedata/character.json'))
 
 data_character_cn = json.loads(
-    pkgutil.get_data('lib', '../data/character_cn.json'))
+    pkgutil.get_data('lib', '../data/gamedata/character_cn.json'))
 
-data_tags = json.loads(pkgutil.get_data('lib', '../data/tag.json'))
+data_tags = json.loads(pkgutil.get_data('lib', '../data/gamedata/tag.json'))
 
-data_tag_with_ch = json.loads(pkgutil.get_data('lib', '../data/tagwithch.json'))
+data_tag_with_ch = json.loads(pkgutil.get_data('lib', '../data/gamedata/tagwithch.json'))
 
 # 在出现错误之后再进行错误赐予更换
 ERROR_MAP = {
@@ -195,16 +195,3 @@ def recruitment(tags: List) -> Tuple:
                 return tags.index(tag[0]), tags.index(tag[1]), tags.index(
                     tag[2])
     return False
-
-
-if __name__ == '__main__':
-    # a = recruitment(['治疗', '狙击干员', '高级资深干员'])
-    # print(a)
-    from lib import adb
-    from lib import utils
-
-    # devices = adb.AndroidDebugBridge('9887bc394436343530')
-    # a = devices.get_screenshot()
-    # b = ocr_tags(utils.cv2_to_base64(a))
-    c = recruitment(['输出', '位移', '减速'])
-    print(c)

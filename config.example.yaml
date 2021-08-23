@@ -1,15 +1,47 @@
 account: # 可添加多个账户
-  - 1:
-      username:
-      password:
-      istimelimit: # 0表示无限制，1表示90min限制
-  - 2:
-      username:
-      password:
-      istimelimit:
+  1:
+    account:                    # 账号
+    password:                   # 密码
+    uid:                        # 当前账号唯一标识
+    channel_uid:                # 渠道uid
+    access_token:               # 游客登录凭据, 用来获取channel_uid
+    #token:                       使用channel_uid和access_token换取的一次性登录凭据
+    secret:                     # http session_id, 标志客户端登录状态
+    istimelimit:                # 0表示无限制，1表示每日90min限制
+  2:
+    account:
+    password:
+    uid:
+    channel_uid:
+    access_token:
+    #token:
+    secret:
+    istimelimit:
+noaddiction: false # 解除防沉迷
+
+mode:
+  global: custom # 全局模式选择 img:只用图片匹配 auto:自动选择 custom:自定义
+  # 自定义模式选择 auto:自动选择 img:图片匹配 mitm:中间人攻击/发包 ocr:文字检查
+  login: img                    # 登录
+  task: img                     # 任务领取
+  recuit: mitm                  # 公招
+  riic: mitm                    # 基建
+  anni: img                     # 剿灭
 ocr:
   tencent:
     SecretId:
     SecretKey:
     LanguageType:
   other:
+notifier:
+  qq:
+    mode:              # private:私聊 group:群发送
+    qid:
+      -
+      -
+
+  telegram:
+    api_token:
+    chat_id:
+      -
+      -

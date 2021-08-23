@@ -172,8 +172,8 @@ class AndroidDebugBridge:
         else:
             return self.adb_shell(f'adb shell input tap {x} {y}')
 
-    def swipe(self, x1, y1, x2, y2):
-        return self.adb_shell(f'adb shell input swipe {x1} {y1} {x2} {y2}')
+    def swipe(self, x1, y1, x2, y2, t=None):
+        return self.adb_shell(f'adb shell input swipe {x1} {y1} {x2} {y2} {t}')
 
     def keyevent(self, key):
         return self.adb_shell(f'adb shell input keyevent {key}')

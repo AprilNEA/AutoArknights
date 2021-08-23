@@ -30,7 +30,7 @@ from lib import utils
 config = yaml.load(pkgutil.get_data('lib', '../config.yaml'),
                    Loader=yaml.FullLoader)
 
-character = json.loads(pkgutil.get_data('lib', '../data/character.json'))
+character = json.loads(pkgutil.get_data('lib', '../data/gamedata/character.json'))
 
 
 def tencent_ocr(img_base64: bytes):

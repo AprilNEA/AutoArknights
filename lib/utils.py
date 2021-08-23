@@ -6,6 +6,7 @@
 # @software: PyCharm
 # @github: GreenSulley/ArknightsAutoHelper
 # @desc: Arknights Auto Helper based on ADB and Python
+import os, sys
 import json
 import time
 import pkgutil
@@ -86,5 +87,18 @@ def updata_gamedata():
             f.write(json.dumps(new_update_info))
 
 
-if __name__ == '__main__':
-    updata_gamedata()
+def get_path(package, recource):
+    return os.path.join(os.path.dirname(sys.modules[package].__file__),
+                        recource)
+
+
+def get_data(package, recource):
+    return open(os.path.join(os.path.dirname(sys.modules[package].__file__),
+                             recource), 'r').read()
+
+
+def write_data(package, recource, data):
+    with open(os.path.join(os.path.dirname(sys.modules[package].__file__),
+                           recource), 'w') as f:
+        f.write(data)
+    return True
