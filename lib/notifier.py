@@ -15,7 +15,7 @@ import requests
 
 
 class QQ:
-    def __init__(self, qid, qtype, ip='127.0.0.1', port=5700):
+    def __init__(self, qid: int, qtype: str, ip='127.0.0.1', port=5700):
         self.url = f"http://{ip}:{port}"
         self.qid = qid
         self.qtype = qtype
@@ -31,15 +31,14 @@ class QQ:
                 'auto_escape': False
             }
             cq_url = f"{self.url}/send_private_msg"
-            rev = requests.post(cq_url, data=data)
+            rev = requests.post(cq_url, params=data)
         elif self.qtype == "group":
             data = {
                 'group_id': self.qid,
                 'message': msg,
                 'auto_escape': False
             }
-            cq_url = f"http://{self.url}/send_group_msg"
-            rev = requests.post(cq_url, data=data)
+            rev = requests.get(f'http://127.0.0.1:5700/send_group_msg?group_id={self.qid}&message={msg}')
         else:
             return False
         if rev.json()['status'] == 'ok':

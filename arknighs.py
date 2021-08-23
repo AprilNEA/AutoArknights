@@ -37,6 +37,7 @@ class Player:
         self.__datapath = utils.get_path('lib', f"../data/account/{self.__username}/")
         if not os.path.exists(self.__datapath):
             os.mkdir(self.__datapath)
+        self.notifier = notifier.QQ(992637510, "group")
 
     # ====轮子重写=====
     def tap_loaction(self, *args: str) -> bool:
@@ -73,8 +74,7 @@ class Player:
         path = 'image'
         for arg in args:
             path += str("/" + arg)
-        locat = utils.match_image(utils.img_np_cv2(path),
-                                  self.adb.get_screenshot())
+        locat = utils.match_image(utils.img_np_cv2(path), self.adb.get_screenshot())
         if locat:
             logger.debug(f"屏幕点击({locat[0]},{locat[1]})")
             self.adb.tap(locat[0], locat[1])
@@ -93,8 +93,45 @@ class Player:
         path = 'image'
         for arg in args:
             path += str("/" + arg)
-        locat = utils.match_image(utils.img_np_cv2(path),
-                                  self.adb.get_screenshot())
+        locat = utils.match_image(utils.img_np_cv2(path), self.adb.get_screenshot())
+        if locat:
+            return True
+        else:
+            # logger.info()
+            return False
+
+    def tap_image(self, target, *args: str) -> bool:
+        """
+        根据给定的图片模板匹配在屏幕上的位置,点击中心
+        :param target:
+        :param args: 数据逐层解包成图片路径
+        :return: 是否成功
+        """
+        n = len(args)
+        path = 'image'
+        for arg in args:
+            path += str("/" + arg)
+        locat = utils.match_image(utils.img_np_cv2(path), target)
+        if locat:
+            logger.debug(f"屏幕点击({locat[0]},{locat[1]})")
+            self.adb.tap(locat[0], locat[1])
+            return True
+        else:
+            # logger.info()
+            return False
+
+    def exist_image(self, target, *args: str) -> bool:
+        """
+        判断给定的图片是否存在于当前屏幕
+        :param target:
+        :param args: 数据逐层解包成图片路径
+        :return: 是否成功
+        """
+        n = len(args)
+        path = 'image'
+        for arg in args:
+            path += str("/" + arg)
+        locat = utils.match_image(utils.img_np_cv2(path), target)
         if locat:
             return True
         else:
@@ -160,6 +197,9 @@ class Player:
             return True
         else:
             logger.info("返回主页失败")
+            path = utils.get_path('lib', f'../data/error/{time.time()}.jpeg')
+            utils.cv2_to_file(self.adb.get_screenshot(), path)
+            self.notifier.send_message(msg="返回主页失败")
             return False
 
     # =====游戏休闲方法=====
@@ -195,49 +235,61 @@ class Player:
         # 收菜
         self.back_to_index()
         if self.tap_screenshot('首页', '公开招募.jpeg'):
-            for i in range(3):
-                logger.info(f'招募干员(收菜) 共3次 第{i + 1}次')
-                if self.exist_screenshot('公招', f'完成{i + 1}.jpeg'):
-                    self.tap_screenshot('公招', '完成.jpeg')
-                    time.sleep(2)
-                    self.adb.tap(1842, 73)
-                    time.sleep(2)
-                    self.adb.tap(randint(100, 1800), randint(100, 1080))
-                    time.sleep(1)
-            # 种菜
-            for i in range(3):
-                logger.info(f'启动新的公招(种菜) 共3次 第{i + 1}次')
-                self.tap_screenshot('公招', '启动公招.jpeg')
-                time.sleep(1)
-                while True:
-                    screenshot = self.adb.get_screenshot()[550:725, 530:1290]
-                    tags = recruitment.ocr_tags(utils.cv2_to_base64(screenshot))
-                    selected_tags = recruitment.recruitment(tags)
-                    if selected_tags:
-                        for s_id in selected_tags:
-                            self.tap_loaction('recruitment', 'tags', s_id)
-                        if '支援机械' in tags:
-                            for j in range(3):
-                                self.tap_loaction('recruitment', 'hour', 'add')
-                            for k in range(10):
-                                self.tap_loaction('recruitment', 'minute',
-                                                  'reduce')
-                        else:
-                            self.tap_loaction('recruitment', 'hour', 'reduce')
-                        self.tap_screenshot('公招', '开始.jpeg')
-                        break
+            loc = data_tap_location['recruitment']['station']
+            time.sleep(1)
+            screen = self.adb.get_screenshot()
+            i = 0
+            for numb in ['first', 'second', 'third']:  # , 'forth']:
+                i += 1
+
+                station = screen[loc[numb][0][1]:loc[numb][1][1], loc[numb][0][0]:loc[numb][1][0]]
+                if not self.exist_image(station, '公招', 'recruit_stillin.jpeg'):
+                    if self.tap_image(station, '公招', f'完成{i}.jpeg'):
+                        time.sleep(2)
+                        self.adb.tap(1842, 73)
+                        time.sleep(2)
+                        self.adb.tap(randint(100, 1800), randint(100, 1080))
+                        time.sleep(1)
+                        logger.info(f'第{i}个公招位: 完成招募')
+                        station = self.adb.get_screenshot()[loc[numb][0][1]:loc[numb][1][1],
+                                  loc[numb][0][0]:loc[numb][1][0]]
+                    time.sleep(0.5)
+                    if self.tap_loaction('recruitment', 'station', numb):
+                        while True:
+                            screenshot = self.adb.get_screenshot()[550:725, 530:1290]
+                            tags = recruitment.ocr_tags(utils.cv2_to_base64(screenshot))
+                            selected_tags = recruitment.recruitment(tags)
+                            if selected_tags:
+                                for s_id in selected_tags:
+                                    self.tap_loaction('recruitment', 'tags', s_id)
+                                if '支援机械' in tags:
+                                    for j in range(3):
+                                        self.tap_loaction('recruitment', 'hour', 'add')
+                                    for k in range(10):
+                                        self.tap_loaction('recruitment', 'minute', 'reduce')
+                                else:
+                                    self.tap_loaction('recruitment', 'hour', 'reduce')
+                                if self.tap_screenshot('公招', '开始.jpeg'):
+                                    logger.info(f'第{i}个公招位: 启动新的公招 选择的标签为{selected_tags}')
+                                    break
+                                else:
+                                    logger.error(f'第{i}个公招位: 无法启动新的公招')
+                            else:
+                                if self.tap_screenshot('公招', '刷新.jpeg'):
+                                    logger.info(f'第{i}个公招位: 标签质量过差 刷新标签')
+                                    continue
+                                else:
+                                    self.tap_loaction('recruitment', 'hour', 'reduce')
+                                    if self.tap_screenshot('公招', '开始.jpeg'):
+                                        logger.info(f'第{i}个公招位: 启动新的公招 空标签')
+                                        break
+                                    else:
+                                        logger.error(f'第{i}个公招位: 无法启动新的公招')
+                                        break
                     else:
-                        # if self.tap_screenshot('公招', '刷新.jpeg'):
-                        #     logger.info(f'刷新标签')
-                        #     continue
-                        # else:
-                        #     self.tap_loaction('recruitment', 'hour', 'reduce')
-                        #     self.tap_screenshot('公招', '开始.jpeg')
-                        #     break
-                        self.tap_loaction('recruitment', 'hour', 'reduce')
-                        self.tap_screenshot('公招', '开始.jpeg')
-                        break
-                time.sleep(2)
+                        logger.error(f'第{i}个公招位: 无法启动新的公招')
+                else:
+                    logger.info(f'第{i}个公招位: 公招尚未完成')
 
     def social_shop(self):
         self.back_to_index()
@@ -520,4 +572,4 @@ if __name__ == '__main__':
     a = Player(1, '')
     # a.stuck('JT8-2')
     # a.receive_task()
-    a.social_shop()
+    a.public_recruitment()

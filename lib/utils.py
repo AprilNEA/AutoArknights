@@ -47,6 +47,11 @@ def base64_to_cv2(base64_str: str):
                         cv2.IMREAD_COLOR)
 
 
+def cv2_to_file(image, path):
+    cv2.imwrite(path, image)
+    return True
+
+
 def match_image(temp, target, accuracy=0.1):
     h, w, s = temp.shape
     result = cv2.matchTemplate(target, temp, cv2.TM_SQDIFF_NORMED)
